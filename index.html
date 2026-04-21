@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html class="light scroll-smooth" lang="fr" dir="ltr">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Le Dôme Paris 15 – Cuisine Française Authentique</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Work+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "surface": "#fcf9f3",
+                        "on-surface": "#1c1c18",
+                        "surface-variant": "#e5e2dc",
+                        "on-surface-variant": "#434843",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-container-low": "#f6f3ed",
+                        "surface-container": "#f0eee8",
+                        "surface-container-high": "#ebe8e2",
+                        "surface-container-highest": "#e5e2dc",
+                        "primary": "#061b0e",
+                        "on-primary": "#ffffff",
+                        "primary-container": "#1b3022",
+                        "secondary": "#735c00",
+                        "on-secondary": "#ffffff",
+                        "secondary-fixed": "#ffe088",
+                        "outline": "#737973",
+                        "outline-variant": "#c3c8c1",
+                    },
+                    fontFamily: {
+                        "headline": ["Noto Serif", "serif"],
+                        "body": ["Work Sans", "sans-serif"],
+                        "label": ["Work Sans", "sans-serif"]
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { font-family: 'Work Sans', sans-serif; background-color: #fcf9f3; }
+        h1, h2, h3, h4, .font-serif { font-family: 'Noto Serif', serif; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24; }
+        .noise-overlay {
+            pointer-events: none;
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+            opacity: 0.03;
+            z-index: 9999;
+        }
+        
+        .lang-dropdown {
+            position: absolute; top: calc(100% + 10px); right: 0;
+            background: #ffffff; border: 1px solid #e5e2dc; border-radius: 0.5rem;
+            min-width: 140px; opacity: 0; visibility: hidden;
+            transform: translateY(-10px); transition: all 0.3s ease;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05); z-index: 100;
+        }
+        .lang-dropdown.open { opacity: 1; visibility: visible; transform: translateY(0); }
+        .lang-option { padding: 12px 16px; display: flex; align-items: center; gap: 8px; cursor: pointer; transition: background 0.2s; font-size: 14px; }
+        .lang-option:hover { background: #f6f3ed; }
+        
+        .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
+        .reveal.visible { opacity: 1; transform: translateY(0); }
+    </style>
+</head>
+<body class="bg-surface text-on-surface">
+    <div class="noise-overlay"></div>
+    
+    <!-- Navbar -->
+    <nav class="fixed top-0 w-full z-50 bg-[#fcf9f3]/90 backdrop-blur-xl transition-colors duration-500 shadow-sm">
+        <div class="flex justify-between items-center px-6 md:px-12 py-6 w-full max-w-screen-2xl mx-auto">
+            <a href="#" class="text-2xl font-serif italic text-primary tracking-tighter" data-i18n="nav_title">Le Dôme Paris 15</a>
+            
+            <div class="hidden md:flex gap-12 items-center">
+                <a class="font-serif text-lg tracking-tight font-light text-on-surface-variant hover:text-secondary transition-colors" href="#about" data-i18n="nav_about">About</a>
+                <a class="font-serif text-lg tracking-tight font-light text-on-surface-variant hover:text-secondary transition-colors" href="#menu" data-i18n="nav_menu">Menu</a>
+                <a class="font-serif text-lg tracking-tight font-light text-on-surface-variant hover:text-secondary transition-colors" href="#reservation" data-i18n="nav_reserve">Reserve</a>
+            </div>
+            
+            <div class="flex items-center gap-6">
+                <div class="relative lang-switcher">
+                    <button class="material-symbols-outlined text-primary hover:scale-105 duration-300" onclick="document.getElementById('langDropdown').classList.toggle('open')">language</button>
+                    <div id="langDropdown" class="lang-dropdown">
+                        <div class="lang-option" onclick="setLang('fr')"><span>🇫🇷</span> FR</div>
+                        <div class="lang-option" onclick="setLang('en')"><span>🇬🇧</span> EN</div>
+                        <div class="lang-option" onclick="setLang('es')"><span>🇪🇸</span> ES</div>
+                        <div class="lang-option" onclick="setLang('de')"><span>🇩🇪</span> DE</div>
+                        <div class="lang-option" onclick="setLang('it')"><span>🇮🇹</span> IT</div>
+                        <div class="lang-option" onclick="setLang('ar')"><span>🇸🇦</span> AR</div>
+                    </div>
+                </div>
+                
+                <a href="https://wiicmenu-qrcode.com/app/reservation_client.php?resto=2776" class="hidden md:block bg-primary text-on-primary px-6 py-3 rounded-md font-label text-sm uppercase tracking-widest hover:scale-105 transition-transform duration-300" data-i18n="nav_btn">Reserve a Table</a>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Home Section -->
+        <div id="home" class="reveal">
+            <section class="relative min-h-[921px] flex items-center px-12 overflow-hidden">
+                <div class="absolute inset-0 z-0">
+                    <img class="w-full h-full object-cover brightness-[0.85]" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBTzgyiNWuFyK2yznPQeLzaSFkvea8wrnovwyrneZbph06aBemjKb_EOrBh2HWxRPw-Ps3ZOxKvPAdNzx7QnznZNYwyNNPiZsRF3ab0t7itXFAfy5NjTmT4U9F0XNKPDq9iVUMaOV3BgS_wsCw_XppjKx_b16ZMlAHOBCNNowdQ2RBnOAx4Pl_WreJ_w0NRi7Jne9Jw1f7qlZdL0Ilmf1XQup6HeYdp-EsLMYyY9L2zBz5BDDYA-XBkZT8UN_lbnm1NhPVP1G4JFg"/>
+                    <div class="absolute inset-0 bg-gradient-to-r from-background/60 to-transparent"></div>
+                </div>
+                <div class="relative z-10 max-w-3xl">
+                    <span class="inline-block px-4 py-1 rounded-full bg-surface-container-highest text-secondary font-label text-xs tracking-widest uppercase mb-6" data-i18n="hero_est">Established 1984</span>
+                    <h1 class="text-7xl md:text-8xl font-serif text-primary leading-[0.9] tracking-tighter mb-8" data-i18n="hero_title">Experience <br/> <span class="italic text-secondary">Authentic</span> <br/> Parisian Bistro Dining</h1>
+                    <div class="flex items-center gap-6">
+                        <a href="https://wiicmenu-qrcode.com/app/reservation_client.php?resto=2776" class="bg-primary text-on-primary px-10 py-5 rounded-md font-label text-sm uppercase tracking-widest shadow-xl hover:bg-primary-container transition-colors duration-300" data-i18n="hero_btn1">Reserve a Table</a>
+                        <a href="#menu" class="text-primary font-serif italic text-xl border-b border-outline-variant hover:border-secondary transition-colors py-2" data-i18n="hero_btn2">View Menu</a>
+                    </div>
+                </div>
+            </section>
+            
+            <section class="bg-surface-container-low py-12 px-12">
+                <div class="max-w-screen-xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12">
+                    <div class="flex items-center gap-4">
+                        <span class="material-symbols-outlined text-secondary text-3xl" style="font-variation-settings: 'FILL' 1;">star</span>
+                        <div>
+                            <p class="font-label text-xs uppercase tracking-widest text-outline" data-i18n="qi_1_title">Excellence</p>
+                            <p class="font-serif text-xl text-primary" data-i18n="qi_1_desc">4.8 Star Gastronomy</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <span class="material-symbols-outlined text-secondary text-3xl">location_on</span>
+                        <div>
+                            <p class="font-label text-xs uppercase tracking-widest text-outline" data-i18n="qi_2_title">Location</p>
+                            <p class="font-serif text-xl text-primary" data-i18n="qi_2_desc">Paris 15ème Arr.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <span class="material-symbols-outlined text-secondary text-3xl">schedule</span>
+                        <div>
+                            <p class="font-label text-xs uppercase tracking-widest text-outline" data-i18n="qi_3_title">Service</p>
+                            <p class="font-serif text-xl text-primary" data-i18n="qi_3_desc">Daily 12:00 — 23:00</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- About Section -->
+        <div id="about" class="reveal mt-20">
+            <section class="px-12 max-w-screen-2xl mx-auto mb-32">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+                    <div class="lg:col-span-7">
+                        <span class="font-label text-secondary uppercase tracking-[0.3em] text-xs mb-6 block" data-i18n="story_sub">Notre Histoire</span>
+                        <h1 class="font-headline text-6xl md:text-8xl text-primary leading-tight mb-10 -ml-1" data-i18n="story_title">Traditional French Cuisine with a <span class="italic font-light">Family Touch</span></h1>
+                        <div class="max-w-xl space-y-8">
+                            <p class="text-body text-lg leading-relaxed text-on-surface-variant" data-i18n="story_p1">Rooted in the heart of the 15th Arrondissement, Le Dôme Paris 15 is more than a restaurant; it is a legacy of culinary passion. For decades, we have served as a sanctuary for those seeking the soul of authentic French bistro culture.</p>
+                            <p class="text-body text-lg leading-relaxed text-on-surface-variant" data-i18n="story_p2">Our 4.8-star reputation is built on the unwavering commitment of our family to source only the finest local ingredients. Every dish that leaves our kitchen carries the weight of heritage and the warmth of a home-cooked meal, refined for the modern palate.</p>
+                        </div>
+                    </div>
+                    <div class="lg:col-span-5 relative">
+                        <div class="aspect-[4/5] rounded-xl overflow-hidden shadow-2xl">
+                            <img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCyNniAFe_gtW7i_BRxfpcgStiIVCDzoHHte_bJiMH9kB4ITinGGH66j9yZXYuNa4Hi4lxtGxJjJ6fFIsF4NSrkuZOgXOjk4ysaIrc5lc8d8svwq6SSkphAbSxGOXw4hFf_Q4tZMHeLzY_m4xYn_o0izmcz7p0NWGxuEfEGOnp70dOcBQ2KcOy0eNG3vZDrab5XCh7FVBGHr50dxNWubdo53axYnPgLcEznshFleSHZ1XRvAe5nyiJeuihqwW93n1WoDyjWANOjmQ"/>
+                        </div>
+                        <div class="absolute -bottom-10 -left-10 w-64 h-64 rounded-xl overflow-hidden hidden md:block border-8 border-surface">
+                            <img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBZOQ_jEqw34UzbFJCWLuXID3J_5cn1TeYX9_Ha_D1GRgAPhjNFRR2zyEy2s0P32DUzajSb1L0b85d49DQpMnw9EWrthe5us4Hl1HZPKPSl1vzDhjs1ztlvgOe4wdv6SLwTUoW4HsUFFQ573IUMfBXRn8F0f91-fhYFqmDAQnHz1GwjeKADff97PCXN3D_AWsGpsFOv8Y4-Z2YBWzLR_H3DlH8Mz7FDwHMWN7Onn9WqCuRfawGk2JQHgJWX9dbbNXpmHdrLiPuihg"/>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+        
+        <!-- Menu Section -->
+        <div id="menu" class="reveal mt-20 pt-20">
+            <header class="max-w-7xl mx-auto px-8 mb-24 text-center">
+                <span class="work-sans text-secondary font-medium tracking-[0.2em] text-xs uppercase mb-4 block" data-i18n="menu_sub">Gastronomie Parisienne</span>
+                <h1 class="noto-serif text-6xl md:text-8xl font-bold tracking-tighter text-primary mb-8" data-i18n="menu_title">La Carte du Dôme</h1>
+                <p class="work-sans text-on-surface-variant max-w-2xl mx-auto text-lg leading-relaxed" data-i18n="menu_desc">Une célébration du terroir français au cœur du 15ème. Nos plats sont préparés avec passion, utilisant des produits de saison sélectionnés auprès de nos artisans locaux.</p>
+            </header>
+
+            <div class="max-w-7xl mx-auto px-8 space-y-32">
+                <!-- Entrées -->
+                <section>
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+                        <div class="lg:col-span-5 order-2 lg:order-1">
+                            <div class="inline-block px-4 py-1 mb-8 bg-surface-container-highest rounded-full text-secondary text-xs font-bold tracking-widest uppercase" data-i18n="menu_starters">Entrées</div>
+                            <div class="space-y-10">
+                                <div class="group">
+                                    <div class="flex justify-between items-baseline mb-1">
+                                        <h3 class="noto-serif text-2xl font-medium text-primary" data-i18n="m_h_t">Filet de hareng sur charlotte</h3>
+                                        <span class="work-sans text-secondary font-semibold">9.50€</span>
+                                    </div>
+                                    <p class="text-on-surface-variant text-sm italic" data-i18n="m_h_d">Pommes de terre charlotte fondantes, oignons doux</p>
+                                </div>
+                                <div class="group">
+                                    <div class="flex justify-between items-baseline mb-1">
+                                        <h3 class="noto-serif text-2xl font-medium text-primary" data-i18n="m_t_t">Tomate mozzarella</h3>
+                                        <span class="work-sans text-secondary font-semibold">8.90€</span>
+                                    </div>
+                                    <p class="text-on-surface-variant text-sm italic" data-i18n="m_t_d">Fraîcheur de saison, basilic ciselé</p>
+                                </div>
+                                <div class="group">
+                                    <div class="flex justify-between items-baseline mb-1">
+                                        <h3 class="noto-serif text-2xl font-medium text-primary" data-i18n="m_o_t">Œuf mayonnaise</h3>
+                                        <span class="work-sans text-secondary font-semibold">8.80€</span>
+                                    </div>
+                                    <p class="text-on-surface-variant text-sm italic" data-i18n="m_o_d">Le grand classique du bistrot parisien</p>
+                                </div>
+                                <div class="group">
+                                    <div class="flex justify-between items-baseline mb-1">
+                                        <h3 class="noto-serif text-2xl font-medium text-primary" data-i18n="m_e_t">Escargots de Bourgogne</h3>
+                                        <div class="text-right">
+                                            <span class="work-sans text-secondary font-semibold block text-sm">x6 : 9.90€</span>
+                                            <span class="work-sans text-secondary font-semibold block text-sm">x12 : 17.00€</span>
+                                        </div>
+                                    </div>
+                                    <p class="text-on-surface-variant text-sm italic" data-i18n="m_e_d">Au beurre persillé maison</p>
+                                </div>
+                                <div class="group">
+                                    <div class="flex justify-between items-baseline mb-1">
+                                        <h3 class="noto-serif text-2xl font-medium text-primary" data-i18n="m_b_t">Burrata et tomates cerises</h3>
+                                        <span class="work-sans text-secondary font-semibold">13.90€</span>
+                                    </div>
+                                    <p class="text-on-surface-variant text-sm italic" data-i18n="m_b_d">Burrata crémeuse, huile d'olive extra vierge</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="lg:col-span-7 order-1 lg:order-2">
+                            <div class="relative h-[500px] rounded-xl overflow-hidden shadow-2xl rotate-2 hover:rotate-0 transition-transform duration-700">
+                                <img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDkRy5fOy6jlbvOkg4_JBnMsAADd4LM3NBT6ijfNv23uXiaYcLrp2jcePnZio88iKiISrCxHEpLN_u9eOUlR19eFRvUZwQmN656skh9FX3QusjY4ceDDVbe_ZOZQFORinRD2FbSyszA34KXzClkZYtLg9X6o-Wq68JagSY7lwIYdExUl9ecKkyNM7TDcwRsaxMJ2cSBoGTD1yJF8w-7xr1jivWt6NQejJ5NvasV9JUTZJ_SQFERYMFMBr-XhzfgCVPpb-j5A-6txQ"/>
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Plats -->
+                <section>
+                    <div class="bg-surface-container-low rounded-xl p-12 lg:p-20">
+                        <div class="text-center mb-16">
+                            <span class="work-sans text-secondary font-medium tracking-[0.2em] text-xs uppercase mb-4 block" data-i18n="menu_mains_sub">Les Incontournables</span>
+                            <h2 class="noto-serif text-4xl font-bold text-primary italic" data-i18n="menu_mains">Grands Classiques & Poissons</h2>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-16 gap-y-12">
+                            <div class="space-y-2">
+                                <div class="flex justify-between items-baseline border-b border-outline-variant/30 pb-2">
+                                    <h4 class="noto-serif text-xl font-bold text-primary" data-i18n="m_c_t">Confit de Canard</h4>
+                                    <span class="text-secondary font-semibold">28.90€</span>
+                                </div>
+                                <p class="text-sm text-on-surface-variant" data-i18n="m_c_d">Pommes sarladaises, ail et persil</p>
+                            </div>
+                            <div class="space-y-2">
+                                <div class="flex justify-between items-baseline border-b border-outline-variant/30 pb-2">
+                                    <h4 class="noto-serif text-xl font-bold text-primary" data-i18n="m_bb_t">Bœuf Bourguignon</h4>
+                                    <span class="text-secondary font-semibold">27.90€</span>
+                                </div>
+                                <p class="text-sm text-on-surface-variant" data-i18n="m_bb_d">Mijoté 7h, carottes et champignons</p>
+                            </div>
+                            <div class="space-y-2">
+                                <div class="flex justify-between items-baseline border-b border-outline-variant/30 pb-2">
+                                    <h4 class="noto-serif text-xl font-bold text-primary" data-i18n="m_d_t">Dorade Royale</h4>
+                                    <span class="text-secondary font-semibold">25.90€</span>
+                                </div>
+                                <p class="text-sm text-on-surface-variant" data-i18n="m_d_d">Entière, grillée au romarin</p>
+                            </div>
+                            <div class="space-y-2">
+                                <div class="flex justify-between items-baseline border-b border-outline-variant/30 pb-2">
+                                    <h4 class="noto-serif text-xl font-bold text-primary" data-i18n="m_s_t">Pavée de Saumon</h4>
+                                    <span class="text-secondary font-semibold">25.90€</span>
+                                </div>
+                                <p class="text-sm text-on-surface-variant" data-i18n="m_s_d">Légumes croquants, sauce hollandaise</p>
+                            </div>
+                            <div class="space-y-2">
+                                <div class="flex justify-between items-baseline border-b border-outline-variant/30 pb-2">
+                                    <h4 class="noto-serif text-xl font-bold text-primary" data-i18n="m_tb_t">Tartare de Bœuf</h4>
+                                    <span class="text-secondary font-semibold">21.90€</span>
+                                </div>
+                                <p class="text-sm text-on-surface-variant" data-i18n="m_tb_d">Préparé au couteau, frites maison</p>
+                            </div>
+                            <div class="space-y-2">
+                                <div class="flex justify-between items-baseline border-b border-outline-variant/30 pb-2">
+                                    <h4 class="noto-serif text-xl font-bold text-primary" data-i18n="m_en_t">Entrecôte</h4>
+                                    <span class="text-secondary font-semibold">34.90€</span>
+                                </div>
+                                <p class="text-sm text-on-surface-variant" data-i18n="m_en_d">300g, sauce au poivre ou béarnaise</p>
+                            </div>
+                            <div class="space-y-2">
+                                <div class="flex justify-between items-baseline border-b border-outline-variant/30 pb-2">
+                                    <h4 class="noto-serif text-xl font-bold text-primary" data-i18n="m_a_t">Andouillette</h4>
+                                    <span class="text-secondary font-semibold">18.90€</span>
+                                </div>
+                                <p class="text-sm text-on-surface-variant" data-i18n="m_a_d">AAAAA, sauce moutarde à l'ancienne</p>
+                            </div>
+                            <div class="space-y-2">
+                                <div class="flex justify-between items-baseline border-b border-outline-variant/30 pb-2">
+                                    <h4 class="noto-serif text-xl font-bold text-primary" data-i18n="m_br_t">Bar en entier royal</h4>
+                                    <span class="text-secondary font-semibold">29.00€</span>
+                                </div>
+                                <p class="text-sm text-on-surface-variant" data-i18n="m_br_d">Prêt pour la dégustation</p>
+                            </div>
+                            <div class="space-y-2">
+                                <div class="flex justify-between items-baseline border-b border-outline-variant/30 pb-2">
+                                    <h4 class="noto-serif text-xl font-bold text-primary" data-i18n="m_p_t">Penne au Saumon</h4>
+                                    <span class="text-secondary font-semibold">25.90€</span>
+                                </div>
+                                <p class="text-sm text-on-surface-variant" data-i18n="m_p_d">Saumon frais, crème légère citronnée</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Burgers & Salads -->
+                <section class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                    <div class="space-y-12">
+                        <h2 class="noto-serif text-3xl font-bold text-primary flex items-center gap-4">
+                            <span class="w-12 h-[1px] bg-secondary"></span>
+                            <span data-i18n="menu_burgers">Nos Burgers Gourmet</span>
+                        </h2>
+                        <div class="space-y-8 bg-surface-container-highest p-8 rounded-xl">
+                            <div class="flex justify-between items-center group">
+                                <div>
+                                    <h4 class="work-sans font-bold text-primary" data-i18n="b_c_t">Burger du Chef</h4>
+                                    <p class="text-xs text-on-surface-variant uppercase tracking-widest mt-1" data-i18n="b_c_d">Signature</p>
+                                </div>
+                                <span class="text-secondary font-semibold">18.90€</span>
+                            </div>
+                            <div class="flex justify-between items-center group">
+                                <div>
+                                    <h4 class="work-sans font-bold text-primary" data-i18n="b_d_t">Burger du Dôme</h4>
+                                    <p class="text-xs text-on-surface-variant uppercase tracking-widest mt-1" data-i18n="b_d_d">Premium Truffe</p>
+                                </div>
+                                <span class="text-secondary font-semibold">29.90€</span>
+                            </div>
+                            <div class="flex justify-between items-center group">
+                                <div>
+                                    <h4 class="work-sans font-bold text-primary" data-i18n="b_b_t">Burger Bleu d’Auvergne</h4>
+                                    <p class="text-xs text-on-surface-variant uppercase tracking-widest mt-1" data-i18n="b_b_d">Caractère</p>
+                                </div>
+                                <span class="text-secondary font-semibold">26.90€</span>
+                            </div>
+                            <div class="flex justify-between items-center group">
+                                <div>
+                                    <h4 class="work-sans font-bold text-primary" data-i18n="b_v_t">Burger Valais Suisse</h4>
+                                    <p class="text-xs text-on-surface-variant uppercase tracking-widest mt-1" data-i18n="b_v_d">Fromage fondu</p>
+                                </div>
+                                <span class="text-secondary font-semibold">25.90€</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="space-y-12">
+                        <h2 class="noto-serif text-3xl font-bold text-primary flex items-center gap-4">
+                            <span class="w-12 h-[1px] bg-secondary"></span>
+                            <span data-i18n="menu_salads">Salades Composées</span>
+                        </h2>
+                        <div class="grid grid-cols-1 gap-6">
+                            <div class="flex gap-6 items-center p-4 bg-surface rounded-lg">
+                                <div class="flex-1">
+                                    <div class="flex justify-between">
+                                        <h4 class="noto-serif text-lg font-bold" data-i18n="s_c_t">Salade Caesar</h4>
+                                        <span class="text-secondary font-semibold">20.90€</span>
+                                    </div>
+                                    <p class="text-sm text-on-surface-variant" data-i18n="s_c_d">Poulet croustillant, copeaux de parmesan</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-6 items-center p-4 bg-surface rounded-lg">
+                                <div class="flex-1">
+                                    <div class="flex justify-between">
+                                        <h4 class="noto-serif text-lg font-bold" data-i18n="s_n_t">Salade Niçoise</h4>
+                                        <span class="text-secondary font-semibold">22.90€</span>
+                                    </div>
+                                    <p class="text-sm text-on-surface-variant" data-i18n="s_n_d">Thon frais, olives, œufs de caille</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-6 items-center p-4 bg-surface rounded-lg">
+                                <div class="flex-1">
+                                    <div class="flex justify-between">
+                                        <h4 class="noto-serif text-lg font-bold" data-i18n="s_p_t">Salade du Pêcheur</h4>
+                                        <span class="text-secondary font-semibold">21.90€</span>
+                                    </div>
+                                    <p class="text-sm text-on-surface-variant" data-i18n="s_p_d">Assortiment de la mer, citron vert</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Drinks -->
+                <section class="bg-primary text-on-primary rounded-xl overflow-hidden">
+                    <div class="grid grid-cols-1 lg:grid-cols-2">
+                        <div class="p-12 lg:p-20 space-y-12">
+                            <h2 class="noto-serif text-5xl font-light italic" data-i18n="menu_drinks">L'Art de la Soif</h2>
+                            <div class="space-y-8">
+                                <div>
+                                    <h3 class="text-secondary-fixed-dim work-sans uppercase tracking-[0.3em] text-xs font-bold mb-4" data-i18n="dr_1">Cocktails & Signatures</h3>
+                                    <div class="flex justify-between items-baseline">
+                                        <span class="noto-serif text-xl" data-i18n="dr_1_d">Sélection Mixologie</span>
+                                        <span class="text-secondary-fixed-dim whitespace-nowrap">11.90€ — 13.90€</span>
+                                    </div>
+                                </div>
+                                <div>
+                                    <h3 class="text-secondary-fixed-dim work-sans uppercase tracking-[0.3em] text-xs font-bold mb-4" data-i18n="dr_2">Boissons Chaudes</h3>
+                                    <div class="space-y-2">
+                                        <div class="flex justify-between"><span class="noto-serif" data-i18n="dr_2_d">Expresso Bio</span><span>2.50€</span></div>
+                                        <div class="flex justify-between"><span class="noto-serif" data-i18n="dr_3_d">Cappuccino Onctueux</span><span>4.50€</span></div>
+                                        <div class="flex justify-between"><span class="noto-serif" data-i18n="dr_4_d">Thés & Infusions</span><span>5.00€</span></div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <h3 class="text-secondary-fixed-dim work-sans uppercase tracking-[0.3em] text-xs font-bold mb-4" data-i18n="dr_5">Softs</h3>
+                                    <div class="flex justify-between">
+                                        <span class="noto-serif" data-i18n="dr_5_d">Coca-Cola, Vittel, Jus de Fruits Frais</span>
+                                        <span>4.90€</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="relative min-h-[400px]">
+                            <img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuASoJRTv6ikFXJhO8Q-Y0GWZrGZQ1dGacTQK-tVEz2dXaqc5K1BEiHGrgwAfWrYzT64ijhlC-yGzRqU4f1LlCEnXVTvOS1s8RiZcfs4V45vL88Yf1Z-qbVubgkSL6aJczxk_ieKGF1SJ8C7dO4nBnYQCU_fIm7x2sQZ9iUFaU0JbI3entaeyyUnpptYdw6rJnPd5FJbHdDB81_vIN8LaggmLKnPjQnSRTutHwHozUf4ufF_x302Bb2Q7EYudTgXb7JEvOtag6e9hg"/>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Desserts -->
+                <section class="max-w-4xl mx-auto">
+                    <div class="text-center mb-16">
+                        <h2 class="noto-serif text-4xl font-bold text-primary" data-i18n="menu_desserts">La Douceur Finale</h2>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-8">
+                        <div class="flex justify-between border-b border-outline-variant/20 pb-4">
+                            <span class="noto-serif text-lg" data-i18n="ds_1">Tiramisu Spéculos</span>
+                            <span class="text-secondary font-bold">5.90€</span>
+                        </div>
+                        <div class="flex justify-between border-b border-outline-variant/20 pb-4">
+                            <span class="noto-serif text-lg" data-i18n="ds_2">Mousse au Chocolat Noir</span>
+                            <span class="text-secondary font-bold">5.90€</span>
+                        </div>
+                        <div class="flex justify-between border-b border-outline-variant/20 pb-4">
+                            <span class="noto-serif text-lg" data-i18n="ds_3">Tarte du Jour de l'Artisan</span>
+                            <span class="text-secondary font-bold">5.90€</span>
+                        </div>
+                        <div class="flex justify-between border-b border-outline-variant/20 pb-4">
+                            <span class="noto-serif text-lg" data-i18n="ds_4">Café Gourmand</span>
+                            <span class="text-secondary font-bold">8.90€</span>
+                        </div>
+                        <div class="flex justify-between border-b border-outline-variant/20 pb-4 col-span-full md:col-span-1">
+                            <span class="noto-serif text-lg" data-i18n="ds_5">Assiette de Fromages Affinés</span>
+                            <span class="text-secondary font-bold">7.90€</span>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Reservation CTA -->
+                <section class="relative rounded-xl overflow-hidden py-24 text-center">
+                    <div class="absolute inset-0 z-0">
+                        <img class="w-full h-full object-cover brightness-[0.4]" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAwK-7_CznC5L6qUEUAh-L3o3BXiBngq3C_LZzKPBj4Nu2iJCqhnEiBhalw7d6yHvMRy9oL7zJMY0jW1SVY84rwvKzcyBoXaAfDm5txQxzwix6YL7-fzFLhnxdysNlbKQPvjR7bDKYWhbqvac87vF_KgfKP7VlxDXSgBDIbxZ97oK1tArfnr9T51w00lTDADJGLbKTJvYj7FaTdsD0h38LVqEJCWifX-QJXtBnZnyZgIs4QB3pIljhsT9GThO4CfreSu235J3AbAw"/>
+                    </div>
+                    <div class="relative z-10 space-y-8 px-8">
+                        <h2 class="noto-serif text-5xl md:text-6xl text-white font-bold italic" data-i18n="res_hero">Une table vous attend</h2>
+                        <p class="text-white/80 work-sans text-xl max-w-xl mx-auto" data-i18n="res_hero_sub">Réservez dès maintenant pour une expérience culinaire d'exception au cœur de Paris.</p>
+                        <a href="https://wiicmenu-qrcode.com/app/reservation_client.php?resto=2776" class="inline-block bg-secondary-fixed text-on-secondary-fixed px-12 py-5 rounded-lg text-lg font-bold shadow-xl" data-i18n="res_hero_btn">Réserver ma Table</a>
+                    </div>
+                </section>
+            </div>
+        </div>
+        
+        <!-- Reservation Details -->
+        <div id="reservation" class="reveal mt-10">
+            <section class="bg-surface-container-low py-32">
+                <div class="px-12 max-w-screen-2xl mx-auto">
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                        <div class="md:col-span-2 bg-surface-container-lowest p-12 rounded-xl flex flex-col justify-between">
+                            <div>
+                                <span class="font-label text-secondary uppercase tracking-[0.3em] text-[10px] mb-8 block" data-i18n="res_q">Le Quartier</span>
+                                <h2 class="font-headline text-4xl text-primary mb-6" data-i18n="res_loc">A Stone's Throw from <span class="italic">Porte de Versailles</span></h2>
+                                <p class="text-on-surface-variant max-w-md leading-relaxed mb-12" data-i18n="res_loc_desc">Located in a serene corner of the 15th, we are perfectly positioned for visitors attending events at Paris Expo or those seeking a quiet escape from the city's bustle.</p>
+                            </div>
+                            <div class="flex flex-wrap gap-12">
+                                <div>
+                                    <span class="font-label text-[10px] uppercase tracking-widest text-outline mb-2 block" data-i18n="res_addr">Address</span>
+                                    <p class="font-medium text-lg">6 Rue du Hameau,<br/>75015 Paris</p>
+                                </div>
+                                <div>
+                                    <span class="font-label text-[10px] uppercase tracking-widest text-outline mb-2 block" data-i18n="res_phone">Phone</span>
+                                    <p class="font-medium text-lg">+33 9 87 76 60 20</p>
+                                </div>
+                                <div>
+                                    <span class="font-label text-[10px] uppercase tracking-widest text-outline mb-2 block" data-i18n="res_hours">Opening Hours</span>
+                                    <p class="font-medium text-lg" data-i18n="res_hours_v">Daily from 11:00</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bg-primary text-on-primary p-12 rounded-xl flex flex-col justify-between relative overflow-hidden">
+                            <div class="relative z-10">
+                                <h3 class="font-headline text-3xl mb-8" data-i18n="res_join">Join us for an unforgettable meal.</h3>
+                                <div class="space-y-4">
+                                    <a class="flex items-center justify-between w-full p-4 border border-on-primary/20 rounded-lg hover:bg-on-primary/10 transition-colors" href="https://wiicmenu-qrcode.com/app/reservation_client.php?resto=2776">
+                                        <span class="font-label uppercase tracking-widest text-xs" data-i18n="res_call">Call Now</span>
+                                        <span class="material-symbols-outlined">call</span>
+                                    </a>
+                                    <a class="flex items-center justify-between w-full p-4 bg-secondary-fixed text-on-secondary-fixed rounded-lg transition-colors text-black" href="https://wiicmenu-qrcode.com/app/reservation_client.php?resto=2776">
+                                        <span class="font-label uppercase tracking-widest text-xs" data-i18n="res_btn2">Reserve a Table</span>
+                                        <span class="material-symbols-outlined">calendar_today</span>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="mt-12 relative z-10 group cursor-pointer">
+                                <div class="h-40 rounded-lg bg-surface-variant/20 overflow-hidden relative">
+                                    <img class="w-full h-full object-cover grayscale opacity-50 transition-all duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBZzFO-k1TdEiHxLoozlACfP2s2UPMcplX3hAEECGV4jSHOrqVOQdFu2bP5Ta21AaKW7EcgcICWgTCrywa-SA4NQAW_rWl3cclMg8TXt7Qf_0UC1lGcd6rys96C589nEBAX6flqOdHonYMRqIACiExOsS24Ufseukv-2_Qmxk11lQRTMTkZkShXsGiTzi4ab6gQDyUK2tFZvKB6Dc0JkiR3ZPYHaRizM97ehcjf8TV_z3PPjJayhvORomIKPp0nBkbsWbVUIM6YHQ"/>
+                                    <div class="absolute inset-0 flex items-center justify-center">
+                                        <span class="bg-primary text-on-primary px-4 py-2 rounded-full text-xs font-label uppercase tracking-widest shadow-xl" data-i18n="res_map">Open in Maps</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <section class="py-40 text-center px-12">
+                <div class="max-w-3xl mx-auto">
+                    <span class="material-symbols-outlined text-secondary text-5xl mb-8" style="font-variation-settings: 'FILL' 1;">format_quote</span>
+                    <p class="font-headline text-4xl italic text-primary leading-snug mb-10" data-i18n="quote_text">"Cuisine is the art of turning something simple into something extraordinary through patience and respect for the product."</p>
+                    <span class="font-label text-xs uppercase tracking-[0.4em] text-outline" data-i18n="quote_sub">— Chef de Cuisine</span>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-surface-container-low py-20 w-full border-t border-outline-variant/10 mt-20">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-12 px-12 max-w-screen-xl mx-auto items-start text-center md:text-left">
+            <div>
+                <p class="font-serif text-xl italic text-primary mb-6" data-i18n="nav_title">Le Dôme Paris 15</p>
+                <p class="font-sans text-xs uppercase tracking-widest leading-relaxed text-on-surface-variant">
+                    6 Rue du Hameau, 75015 Paris<br/>
+                    +33 9 87 76 60 20<br/>
+                    contact@ledomeparis15.fr
+                </p>
+            </div>
+            <div></div> <!-- Spacer -->
+            <div>
+                <p class="font-label text-xs uppercase tracking-widest text-primary font-semibold mb-6" data-i18n="footer_copy">© 2025 Restaurant Bistrot Le Dôme Paris 15. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="translations.js"></script>
+    <script>
+        function applyTranslations() {
+            const t = translations[currentLang] || translations.fr;
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (t[key] !== undefined) {
+                    el.innerHTML = t[key];
+                }
+            });
+            document.documentElement.dir = (currentLang === 'ar') ? 'rtl' : 'ltr';
+            document.documentElement.lang = currentLang;
+            
+            if(currentLang === 'ar') {
+                document.body.style.fontFamily = "'Noto Kufi Arabic', sans-serif";
+            } else {
+                document.body.style.fontFamily = "'Work Sans', sans-serif";
+            }
+        }
+        
+        let currentLang = 'fr';
+        function setLang(lang) {
+            currentLang = lang;
+            document.getElementById('langDropdown').classList.remove('open');
+            applyTranslations();
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+            applyTranslations();
+            
+            document.addEventListener('click', (e) => {
+                if (!e.target.closest('.lang-switcher')) {
+                    document.getElementById('langDropdown').classList.remove('open');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,2616 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Restaurant Bistrot Le Dôme Paris 15 – Cuisine Française Authentique</title>
+<meta name="description" content="Restaurant Bistrot Le Dôme Paris 15 – Cuisine française traditionnelle, atmosphère chaleureuse, 4.8★ sur 1700+ avis. 6 Rue du Hameau, 75015 Paris."/>
+<meta name="keywords" content="restaurant paris bistro, french restaurant paris 15, traditional french food, bistrot paris, le dôme paris, porte de versailles restaurant"/>
+<meta property="og:title" content="Restaurant Bistrot Le Dôme Paris 15"/>
+<meta property="og:description" content="Cuisine française authentique dans le 15e arrondissement. 4.8★ sur 1700+ avis."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet"/>
+<style>
+:root {
+  --cream: #F7F2E8;
+  --cream-dark: #EDE5D0;
+  --green: #1B3A2C;
+  --green-mid: #2C5440;
+  --green-light: #3D7057;
+  --gold: #C4963A;
+  --gold-light: #D9B060;
+  --black: #0F0F0F;
+  --charcoal: #1E1E1E;
+  --text-dark: #1A1A1A;
+  --text-mid: #3A3A3A;
+  --text-light: #7A7060;
+  --white: #FFFFFF;
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-body: 'Cormorant Garamond', Georgia, serif;
+  --font-ui: 'Jost', sans-serif;
+  --transition: 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-body);
+  background: var(--cream);
+  color: var(--text-dark);
+  overflow-x: hidden;
+  font-size: 18px;
+  line-height: 1.7;
+}
+
+/* ─── NOISE TEXTURE OVERLAY ─── */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.4;
+}
+
+/* ─── SCROLLBAR ─── */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--cream); }
+::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 3px; }
+
+/* ─── NAVBAR ─── */
+.navbar {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 1000;
+  padding: 0 40px;
+  height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: background var(--transition), box-shadow var(--transition);
+}
+.navbar.scrolled {
+  background: rgba(27, 58, 44, 0.97);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 2px 40px rgba(0,0,0,0.25);
+}
+.navbar-logo {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--cream);
+  text-decoration: none;
+  letter-spacing: 0.02em;
+  display: flex;
+  flex-direction: column;
+  line-height: 1.15;
+}
+.navbar-logo span {
+  font-size: 0.65rem;
+  font-family: var(--font-ui);
+  font-weight: 300;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold-light);
+  opacity: 0.9;
+}
+.navbar-nav {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  list-style: none;
+}
+.navbar-nav a {
+  font-family: var(--font-ui);
+  font-size: 0.75rem;
+  font-weight: 400;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(247,242,232,0.85);
+  text-decoration: none;
+  transition: color var(--transition);
+  position: relative;
+  padding-bottom: 4px;
+}
+.navbar-nav a::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0;
+  width: 0; height: 1px;
+  background: var(--gold);
+  transition: width var(--transition);
+}
+.navbar-nav a:hover { color: var(--gold-light); }
+.navbar-nav a:hover::after { width: 100%; }
+.navbar-reserve-btn {
+  background: var(--gold);
+  color: var(--black) !important;
+  padding: 9px 22px !important;
+  border-radius: 2px;
+  font-weight: 500 !important;
+  letter-spacing: 0.1em !important;
+  transition: background var(--transition), transform 0.2s !important;
+}
+.navbar-reserve-btn::after { display: none !important; }
+.navbar-reserve-btn:hover { background: var(--gold-light) !important; transform: translateY(-1px); }
+
+/* Language Switcher */
+.lang-switcher {
+  position: relative;
+  font-family: var(--font-ui);
+}
+.lang-btn {
+  background: none;
+  border: 1px solid rgba(196,150,58,0.4);
+  color: rgba(247,242,232,0.85);
+  font-family: var(--font-ui);
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 6px 14px;
+  cursor: pointer;
+  border-radius: 2px;
+  transition: all var(--transition);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.lang-btn:hover { border-color: var(--gold); color: var(--gold-light); }
+.lang-dropdown {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  background: var(--green);
+  border: 1px solid rgba(196,150,58,0.3);
+  border-radius: 4px;
+  min-width: 130px;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-6px);
+  transition: all 0.25s ease;
+  overflow: hidden;
+}
+.lang-dropdown.open { opacity: 1; visibility: visible; transform: translateY(0); }
+.lang-option {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 16px;
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(247,242,232,0.8);
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.lang-option:hover, .lang-option.active { background: rgba(196,150,58,0.15); color: var(--gold-light); }
+.lang-flag { font-size: 1.1rem; }
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  padding: 4px;
+}
+.hamburger span {
+  display: block;
+  width: 24px; height: 1.5px;
+  background: var(--cream);
+  transition: all 0.3s;
+}
+.hamburger.open span:nth-child(1) { transform: rotate(45deg) translate(4.5px, 4.5px); }
+.hamburger.open span:nth-child(2) { opacity: 0; }
+.hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(4.5px, -4.5px); }
+
+/* ─── HERO ─── */
+.hero {
+  position: relative;
+  height: 100vh;
+  min-height: 700px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background: url('https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=1800&q=80&fit=crop') center/cover no-repeat;
+  transform: scale(1.06);
+  transition: transform 8s ease-out;
+}
+.hero-bg.loaded { transform: scale(1); }
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(160deg, rgba(10,25,18,0.75) 0%, rgba(10,25,18,0.55) 50%, rgba(10,25,18,0.7) 100%);
+}
+.hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  padding: 0 24px;
+  max-width: 860px;
+}
+.hero-eyebrow {
+  font-family: var(--font-ui);
+  font-size: 0.68rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 20px;
+  opacity: 0;
+  transform: translateY(16px);
+  animation: fadeUp 0.9s 0.3s forwards;
+}
+.hero h1 {
+  font-family: var(--font-display);
+  font-size: clamp(2.8rem, 6vw, 5.2rem);
+  font-weight: 600;
+  color: var(--cream);
+  line-height: 1.12;
+  letter-spacing: -0.01em;
+  margin-bottom: 22px;
+  opacity: 0;
+  transform: translateY(16px);
+  animation: fadeUp 0.9s 0.5s forwards;
+}
+.hero h1 em { color: var(--gold-light); font-style: italic; }
+.hero-sub {
+  font-family: var(--font-body);
+  font-size: 1.2rem;
+  font-weight: 300;
+  color: rgba(247,242,232,0.8);
+  margin-bottom: 40px;
+  opacity: 0;
+  transform: translateY(16px);
+  animation: fadeUp 0.9s 0.7s forwards;
+  letter-spacing: 0.02em;
+}
+.hero-ctas {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+  opacity: 0;
+  transform: translateY(16px);
+  animation: fadeUp 0.9s 0.9s forwards;
+}
+.btn-primary {
+  background: var(--gold);
+  color: var(--black);
+  font-family: var(--font-ui);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  padding: 16px 36px;
+  border: none;
+  border-radius: 2px;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: all var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+.btn-primary::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(255,255,255,0.12);
+  transform: translateX(-100%);
+  transition: transform 0.35s ease;
+}
+.btn-primary:hover::before { transform: translateX(0); }
+.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(196,150,58,0.35); }
+.btn-outline {
+  background: transparent;
+  color: var(--cream);
+  font-family: var(--font-ui);
+  font-size: 0.72rem;
+  font-weight: 400;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  padding: 15px 36px;
+  border: 1px solid rgba(247,242,232,0.45);
+  border-radius: 2px;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: all var(--transition);
+}
+.btn-outline:hover { border-color: var(--gold); color: var(--gold-light); transform: translateY(-2px); }
+
+.hero-scroll {
+  position: absolute;
+  bottom: 32px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  opacity: 0;
+  animation: fadeUp 1s 1.4s forwards;
+}
+.hero-scroll span {
+  font-family: var(--font-ui);
+  font-size: 0.6rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(247,242,232,0.5);
+}
+.scroll-line {
+  width: 1px; height: 40px;
+  background: linear-gradient(to bottom, var(--gold), transparent);
+  animation: scrollPulse 2s infinite;
+}
+
+/* ─── INFO BAR ─── */
+.info-bar {
+  background: var(--green);
+  padding: 0 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  flex-wrap: wrap;
+  overflow: hidden;
+}
+.info-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 18px 36px;
+  border-right: 1px solid rgba(247,242,232,0.08);
+  opacity: 0;
+  transform: translateY(10px);
+}
+.info-item:last-child { border-right: none; }
+.info-item.visible { animation: fadeUp 0.6s forwards; }
+.info-icon {
+  color: var(--gold);
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+.info-label {
+  font-family: var(--font-ui);
+  font-size: 0.62rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(247,242,232,0.45);
+  display: block;
+  line-height: 1;
+  margin-bottom: 2px;
+}
+.info-value {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  color: var(--cream);
+  font-weight: 400;
+  display: block;
+  line-height: 1.2;
+}
+.stars { color: var(--gold); letter-spacing: 1px; font-size: 0.8rem; }
+
+/* ─── SECTIONS ─── */
+section { position: relative; }
+
+.section-label {
+  font-family: var(--font-ui);
+  font-size: 0.62rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.section-label::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--gold);
+  opacity: 0.3;
+  max-width: 60px;
+}
+.section-title {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  font-weight: 600;
+  color: var(--green);
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+}
+.section-title.light { color: var(--cream); }
+.section-body {
+  font-family: var(--font-body);
+  font-size: 1.1rem;
+  color: var(--text-mid);
+  line-height: 1.8;
+  font-weight: 300;
+}
+.section-body.light { color: rgba(247,242,232,0.75); }
+
+/* ─── ABOUT ─── */
+#about {
+  padding: 100px 40px;
+  background: var(--cream);
+}
+.about-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+.about-visual {
+  position: relative;
+}
+.about-img-main {
+  width: 100%;
+  aspect-ratio: 4/5;
+  object-fit: cover;
+  border-radius: 2px;
+  display: block;
+}
+.about-img-accent {
+  position: absolute;
+  width: 48%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  bottom: -32px;
+  right: -28px;
+  border: 6px solid var(--cream);
+  border-radius: 2px;
+}
+.about-badge {
+  position: absolute;
+  top: 32px;
+  left: -24px;
+  background: var(--green);
+  color: var(--cream);
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 3px solid var(--gold);
+  text-align: center;
+  box-shadow: 0 8px 30px rgba(27,58,44,0.3);
+}
+.about-badge-num {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--gold);
+  line-height: 1;
+}
+.about-badge-text {
+  font-family: var(--font-ui);
+  font-size: 0.52rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(247,242,232,0.7);
+  margin-top: 2px;
+  text-align: center;
+  padding: 0 6px;
+  line-height: 1.2;
+}
+.about-text .section-title { margin-bottom: 24px; }
+.about-text .section-body { margin-bottom: 32px; }
+.about-features {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-top: 36px;
+}
+.about-feature {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+}
+.feature-icon {
+  color: var(--gold);
+  font-size: 1.1rem;
+  margin-top: 2px;
+  flex-shrink: 0;
+}
+.feature-label {
+  font-family: var(--font-ui);
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  color: var(--text-dark);
+  font-weight: 500;
+  display: block;
+  margin-bottom: 2px;
+}
+.feature-desc {
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  color: var(--text-light);
+  font-weight: 300;
+}
+
+/* ─── DIVIDER ─── */
+.ornament-divider {
+  text-align: center;
+  padding: 20px 0;
+  color: var(--gold);
+  opacity: 0.5;
+  font-size: 1.2rem;
+  letter-spacing: 12px;
+}
+
+/* ─── MENU ─── */
+#menu {
+  background: var(--green);
+  padding: 100px 40px;
+}
+.menu-inner { max-width: 1100px; margin: 0 auto; }
+.menu-header { text-align: center; margin-bottom: 60px; }
+.menu-header .section-label { justify-content: center; }
+.menu-header .section-label::after { display: none; }
+.menu-tabs {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin-bottom: 56px;
+  background: rgba(255,255,255,0.04);
+  border-radius: 4px;
+  padding: 6px;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.menu-tab {
+  font-family: var(--font-ui);
+  font-size: 0.65rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 10px 20px;
+  border: none;
+  background: transparent;
+  color: rgba(247,242,232,0.5);
+  cursor: pointer;
+  border-radius: 3px;
+  transition: all var(--transition);
+}
+.menu-tab.active, .menu-tab:hover {
+  background: var(--gold);
+  color: var(--black);
+}
+.menu-panel { display: none; }
+.menu-panel.active { display: block; animation: fadeIn 0.4s ease; }
+.menu-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1px;
+  background: rgba(255,255,255,0.05);
+}
+.menu-item {
+  background: rgba(27,58,44,0.6);
+  padding: 24px 28px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 20px;
+  transition: background var(--transition);
+  border-left: 2px solid transparent;
+}
+.menu-item:hover {
+  background: rgba(196,150,58,0.07);
+  border-left-color: var(--gold);
+}
+.menu-item-left { flex: 1; }
+.menu-item-name {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  color: var(--cream);
+  margin-bottom: 4px;
+  font-weight: 500;
+}
+.menu-item-desc {
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  color: rgba(247,242,232,0.45);
+  font-weight: 300;
+  line-height: 1.5;
+}
+.menu-item-price {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  color: var(--gold);
+  white-space: nowrap;
+  font-weight: 500;
+  flex-shrink: 0;
+}
+.menu-note {
+  text-align: center;
+  margin-top: 40px;
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  color: rgba(247,242,232,0.35);
+  font-style: italic;
+  letter-spacing: 0.03em;
+}
+
+/* ─── RESERVATION ─── */
+#reservation {
+  background: var(--cream-dark);
+  padding: 100px 40px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+#reservation::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: 
+    repeating-linear-gradient(0deg, transparent, transparent 39px, rgba(27,58,44,0.04) 39px, rgba(27,58,44,0.04) 40px),
+    repeating-linear-gradient(90deg, transparent, transparent 39px, rgba(27,58,44,0.04) 39px, rgba(27,58,44,0.04) 40px);
+  pointer-events: none;
+}
+.reservation-inner {
+  max-width: 700px;
+  margin: 0 auto;
+  position: relative;
+}
+.reservation-inner .section-label { justify-content: center; }
+.reservation-inner .section-label::after { display: none; }
+.reservation-inner .section-title { margin-bottom: 20px; }
+.reservation-inner .section-body { margin-bottom: 12px; }
+.reservation-trust {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  margin: 20px 0 36px;
+  flex-wrap: wrap;
+}
+.trust-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-ui);
+  font-size: 0.68rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-light);
+}
+.trust-icon { color: var(--gold); }
+.reservation-btn-wrap {
+  margin-bottom: 28px;
+}
+.btn-reserve-main {
+  background: var(--green);
+  color: var(--cream);
+  font-family: var(--font-ui);
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  padding: 20px 56px;
+  border: none;
+  border-radius: 2px;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  transition: all var(--transition);
+  box-shadow: 0 4px 24px rgba(27,58,44,0.2);
+}
+.btn-reserve-main:hover {
+  background: var(--green-mid);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 40px rgba(27,58,44,0.3);
+}
+.reservation-sub {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  color: var(--text-light);
+  font-style: italic;
+}
+.reservation-contact-alt {
+  margin-top: 32px;
+  padding-top: 28px;
+  border-top: 1px solid rgba(27,58,44,0.12);
+  font-family: var(--font-ui);
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  color: var(--text-light);
+}
+.reservation-contact-alt a {
+  color: var(--green);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+.reservation-contact-alt a:hover { color: var(--gold); }
+
+/* ─── GALLERY ─── */
+#gallery {
+  padding: 100px 40px;
+  background: var(--cream);
+}
+.gallery-inner { max-width: 1200px; margin: 0 auto; }
+.gallery-header { text-align: center; margin-bottom: 50px; }
+.gallery-header .section-label { justify-content: center; }
+.gallery-header .section-label::after { display: none; }
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: auto;
+  gap: 12px;
+}
+.gallery-item {
+  overflow: hidden;
+  cursor: pointer;
+  position: relative;
+  border-radius: 2px;
+}
+.gallery-item:nth-child(1) { grid-column: span 2; grid-row: span 2; }
+.gallery-item:nth-child(4) { grid-column: span 2; }
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s ease;
+  min-height: 200px;
+}
+.gallery-item:hover img { transform: scale(1.06); }
+.gallery-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(27,58,44,0);
+  transition: background 0.4s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.gallery-overlay span {
+  color: var(--cream);
+  font-family: var(--font-ui);
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  opacity: 0;
+  transition: opacity 0.4s;
+}
+.gallery-item:hover .gallery-overlay { background: rgba(27,58,44,0.35); }
+.gallery-item:hover .gallery-overlay span { opacity: 1; }
+
+/* Lightbox */
+.lightbox {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(10,20,15,0.95);
+  z-index: 2000;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+.lightbox.open { display: flex; }
+.lightbox img {
+  max-width: 90vw;
+  max-height: 88vh;
+  object-fit: contain;
+  border-radius: 2px;
+}
+.lightbox-close {
+  position: absolute;
+  top: 24px; right: 28px;
+  color: var(--cream);
+  font-size: 2rem;
+  cursor: pointer;
+  line-height: 1;
+  opacity: 0.7;
+  transition: opacity 0.2s;
+  background: none;
+  border: none;
+}
+.lightbox-close:hover { opacity: 1; }
+
+/* ─── REVIEWS ─── */
+#reviews {
+  background: var(--green);
+  padding: 100px 40px;
+}
+.reviews-inner { max-width: 1100px; margin: 0 auto; }
+.reviews-header { text-align: center; margin-bottom: 64px; }
+.reviews-header .section-label { justify-content: center; }
+.reviews-header .section-label::after { display: none; }
+.rating-display {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 20px;
+}
+.rating-number {
+  font-family: var(--font-display);
+  font-size: 4rem;
+  font-weight: 700;
+  color: var(--cream);
+  line-height: 1;
+}
+.rating-details {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.rating-stars { color: var(--gold); font-size: 1.1rem; letter-spacing: 3px; }
+.rating-count {
+  font-family: var(--font-ui);
+  font-size: 0.65rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(247,242,232,0.45);
+}
+.reviews-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+.review-card {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(247,242,232,0.07);
+  padding: 32px;
+  border-radius: 2px;
+  transition: all var(--transition);
+  position: relative;
+}
+.review-card::before {
+  content: '\201C';
+  position: absolute;
+  top: 20px; right: 24px;
+  font-family: var(--font-display);
+  font-size: 4rem;
+  color: var(--gold);
+  opacity: 0.2;
+  line-height: 1;
+}
+.review-card:hover {
+  background: rgba(196,150,58,0.06);
+  border-color: rgba(196,150,58,0.2);
+  transform: translateY(-4px);
+  box-shadow: 0 20px 50px rgba(0,0,0,0.2);
+}
+.review-stars { color: var(--gold); font-size: 0.8rem; letter-spacing: 2px; margin-bottom: 14px; }
+.review-text {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  color: rgba(247,242,232,0.75);
+  line-height: 1.75;
+  font-weight: 300;
+  margin-bottom: 20px;
+  font-style: italic;
+}
+.review-author {
+  font-family: var(--font-ui);
+  font-size: 0.68rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+.review-date {
+  font-family: var(--font-ui);
+  font-size: 0.6rem;
+  letter-spacing: 0.08em;
+  color: rgba(247,242,232,0.3);
+  margin-top: 2px;
+}
+
+/* ─── CONTACT ─── */
+#contact {
+  background: var(--cream);
+  padding: 100px 40px;
+}
+.contact-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: start;
+}
+.contact-info .section-title { margin-bottom: 40px; }
+.contact-detail {
+  display: flex;
+  gap: 18px;
+  margin-bottom: 28px;
+  align-items: flex-start;
+}
+.contact-icon-wrap {
+  width: 44px; height: 44px;
+  background: var(--green);
+  color: var(--gold);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+  flex-shrink: 0;
+}
+.contact-detail-label {
+  font-family: var(--font-ui);
+  font-size: 0.62rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-light);
+  display: block;
+  margin-bottom: 3px;
+}
+.contact-detail-value {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  color: var(--text-dark);
+  font-weight: 400;
+}
+.contact-detail-value a {
+  color: var(--green);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.contact-detail-value a:hover { color: var(--gold); }
+.contact-btns {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 36px;
+}
+.btn-green {
+  background: var(--green);
+  color: var(--cream);
+  font-family: var(--font-ui);
+  font-size: 0.68rem;
+  font-weight: 400;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 13px 28px;
+  border: none;
+  border-radius: 2px;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: all var(--transition);
+}
+.btn-green:hover { background: var(--green-mid); transform: translateY(-2px); }
+
+.map-container {
+  width: 100%;
+  aspect-ratio: 4/3.2;
+  border-radius: 2px;
+  overflow: hidden;
+  border: 1px solid rgba(27,58,44,0.12);
+}
+.map-container iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+.hours-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px 20px;
+  margin-top: 6px;
+}
+.hour-row {
+  display: flex;
+  justify-content: space-between;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  color: var(--text-mid);
+}
+.hour-day { font-weight: 400; }
+.hour-time { color: var(--green); font-weight: 500; }
+
+/* ─── FOOTER ─── */
+footer {
+  background: var(--charcoal);
+  padding: 60px 40px 32px;
+}
+.footer-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr;
+  gap: 60px;
+  padding-bottom: 48px;
+  border-bottom: 1px solid rgba(247,242,232,0.06);
+}
+.footer-brand-name {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  color: var(--cream);
+  margin-bottom: 8px;
+}
+.footer-brand-sub {
+  font-family: var(--font-ui);
+  font-size: 0.6rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 20px;
+  display: block;
+}
+.footer-desc {
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  color: rgba(247,242,232,0.4);
+  line-height: 1.7;
+  font-weight: 300;
+}
+.footer-heading {
+  font-family: var(--font-ui);
+  font-size: 0.62rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 20px;
+}
+.footer-links {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.footer-links a {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  color: rgba(247,242,232,0.45);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.footer-links a:hover { color: var(--gold-light); }
+.footer-bottom {
+  max-width: 1100px;
+  margin: 28px auto 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.footer-copy {
+  font-family: var(--font-ui);
+  font-size: 0.6rem;
+  letter-spacing: 0.08em;
+  color: rgba(247,242,232,0.2);
+}
+
+/* ─── ANIMATIONS ─── */
+@keyframes fadeUp {
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes scrollPulse {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 1; }
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+.reveal-delay-4 { transition-delay: 0.4s; }
+
+/* ─── RTL (Arabic) ─── */
+html[dir="rtl"] .section-label::after { display: none; }
+html[dir="rtl"] .section-label::before {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--gold);
+  opacity: 0.3;
+  max-width: 60px;
+}
+html[dir="rtl"] .menu-item { border-left: none; border-right: 2px solid transparent; }
+html[dir="rtl"] .menu-item:hover { border-right-color: var(--gold); }
+html[dir="rtl"] .review-card::before { right: auto; left: 24px; }
+
+/* ─── MOBILE ─── */
+@media (max-width: 900px) {
+  .navbar { padding: 0 20px; }
+  .navbar-nav { display: none; }
+  .navbar-nav.open {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    inset: 72px 0 0;
+    background: var(--green);
+    padding: 40px 30px;
+    gap: 24px;
+    z-index: 999;
+  }
+  .navbar-nav.open a { font-size: 1rem; letter-spacing: 0.1em; }
+  .hamburger { display: flex; }
+  .about-inner { grid-template-columns: 1fr; gap: 48px; }
+  .about-img-accent { display: none; }
+  .about-badge { left: 16px; top: 16px; }
+  .menu-grid { grid-template-columns: 1fr; }
+  .reviews-grid { grid-template-columns: 1fr; }
+  .contact-inner { grid-template-columns: 1fr; gap: 48px; }
+  .footer-inner { grid-template-columns: 1fr; gap: 36px; }
+  .gallery-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  .gallery-item:nth-child(1) { grid-column: span 2; }
+  .gallery-item:nth-child(4) { grid-column: span 1; }
+  .info-bar { flex-direction: column; padding: 0; }
+  .info-item { width: 100%; justify-content: center; border-right: none; border-bottom: 1px solid rgba(247,242,232,0.08); }
+  #about, #menu, #reservation, #gallery, #reviews, #contact { padding: 70px 20px; }
+  .hero-ctas { flex-direction: column; align-items: center; }
+}
+@media (max-width: 600px) {
+  .menu-tabs { gap: 2px; }
+  .menu-tab { padding: 8px 12px; font-size: 0.58rem; }
+  .gallery-grid { grid-template-columns: 1fr; }
+  .gallery-item:nth-child(1), .gallery-item:nth-child(4) { grid-column: span 1; }
+  .contact-btns { flex-direction: column; }
+}
+</style>
+</head>
+<body>
+
+<!-- ══════════════ NAVBAR ══════════════ -->
+<nav class="navbar" id="navbar">
+  <a href="#" class="navbar-logo" data-i18n="logo_name">Restaurant Bistrot<span data-i18n="logo_sub">Le Dôme · Paris 15</span></a>
+  
+  <ul class="navbar-nav" id="navMenu">
+    <li><a href="#about" data-i18n="nav_about">Notre Histoire</a></li>
+    <li><a href="#menu" data-i18n="nav_menu">Menu</a></li>
+    <li><a href="#gallery" data-i18n="nav_gallery">Galerie</a></li>
+    <li><a href="#reviews" data-i18n="nav_reviews">Avis</a></li>
+    <li><a href="#contact" data-i18n="nav_contact">Contact</a></li>
+    <li><a href="https://wiicmenu-qrcode.com/app/reservation_client.php?resto=2776" target="_blank" class="navbar-reserve-btn" data-i18n="nav_reserve">Réserver</a></li>
+    <li>
+      <div class="lang-switcher" id="langSwitcher">
+        <button class="lang-btn" id="langBtn" onclick="toggleLang()">
+          <span id="currentFlag">🇫🇷</span> <span id="currentLangCode">FR</span> <span>▾</span>
+        </button>
+        <div class="lang-dropdown" id="langDropdown">
+          <div class="lang-option active" onclick="setLang('fr')"><span class="lang-flag">🇫🇷</span> Français</div>
+          <div class="lang-option" onclick="setLang('en')"><span class="lang-flag">🇬🇧</span> English</div>
+          <div class="lang-option" onclick="setLang('es')"><span class="lang-flag">🇪🇸</span> Español</div>
+          <div class="lang-option" onclick="setLang('de')"><span class="lang-flag">🇩🇪</span> Deutsch</div>
+          <div class="lang-option" onclick="setLang('it')"><span class="lang-flag">🇮🇹</span> Italiano</div>
+          <div class="lang-option" onclick="setLang('ar')"><span class="lang-flag">🇸🇦</span> العربية</div>
+        </div>
+      </div>
+    </li>
+  </ul>
+
+  <div style="display:flex;align-items:center;gap:16px;">
+    <div class="lang-switcher" id="langSwitcherMobile" style="display:none;">
+      <button class="lang-btn" onclick="toggleLangMobile()">
+        <span id="currentFlagM">🇫🇷</span> <span id="currentLangCodeM">FR</span> <span>▾</span>
+      </button>
+      <div class="lang-dropdown" id="langDropdownMobile">
+        <div class="lang-option active" onclick="setLang('fr')"><span class="lang-flag">🇫🇷</span> Français</div>
+        <div class="lang-option" onclick="setLang('en')"><span class="lang-flag">🇬🇧</span> English</div>
+        <div class="lang-option" onclick="setLang('es')"><span class="lang-flag">🇪🇸</span> Español</div>
+        <div class="lang-option" onclick="setLang('de')"><span class="lang-flag">🇩🇪</span> Deutsch</div>
+        <div class="lang-option" onclick="setLang('it')"><span class="lang-flag">🇮🇹</span> Italiano</div>
+        <div class="lang-option" onclick="setLang('ar')"><span class="lang-flag">🇸🇦</span> العربية</div>
+      </div>
+    </div>
+    <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</nav>
+
+<!-- ══════════════ HERO ══════════════ -->
+<section class="hero" id="home">
+  <div class="hero-bg" id="heroBg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <p class="hero-eyebrow" data-i18n="hero_eyebrow">Paris 15 · Depuis 2010 · 4.8★ sur Google</p>
+    <h1 data-i18n="hero_title">Vivez <em>l'Expérience</em><br>du Bistrot Parisien</h1>
+    <p class="hero-sub" data-i18n="hero_sub">Cuisine française authentique · Atmosphère chaleureuse · Service familial</p>
+    <div class="hero-ctas">
+      <a href="https://wiicmenu-qrcode.com/app/reservation_client.php?resto=2776" target="_blank" class="btn-primary" data-i18n="hero_cta1">✦ Réserver une Table</a>
+      <a href="#menu" class="btn-outline" data-i18n="hero_cta2">Voir la Carte</a>
+    </div>
+  </div>
+  <div class="hero-scroll">
+    <span data-i18n="scroll_down">Découvrir</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<!-- ══════════════ INFO BAR ══════════════ -->
+<div class="info-bar">
+  <div class="info-item reveal">
+    <span class="info-icon">★</span>
+    <div>
+      <span class="info-label" data-i18n="info_rating">Note</span>
+      <span class="info-value"><span class="stars">★★★★★</span> 4.8 / 5</span>
+    </div>
+  </div>
+  <div class="info-item reveal reveal-delay-1">
+    <span class="info-icon">📍</span>
+    <div>
+      <span class="info-label" data-i18n="info_address">Adresse</span>
+      <span class="info-value">6 Rue du Hameau, 75015 Paris</span>
+    </div>
+  </div>
+  <div class="info-item reveal reveal-delay-2">
+    <span class="info-icon">🕐</span>
+    <div>
+      <span class="info-label" data-i18n="info_hours">Horaires</span>
+      <span class="info-value" data-i18n="info_hours_val">Ouvert tous les jours · 11h00</span>
+    </div>
+  </div>
+  <div class="info-item reveal reveal-delay-3">
+    <span class="info-icon">💶</span>
+    <div>
+      <span class="info-label" data-i18n="info_price">Prix moyen</span>
+      <span class="info-value">€20 – €30 / pers.</span>
+    </div>
+  </div>
+  <div class="info-item reveal reveal-delay-4">
+    <span class="info-icon">🏆</span>
+    <div>
+      <span class="info-label" data-i18n="info_reviews">Avis clients</span>
+      <span class="info-value" data-i18n="info_reviews_val">1 700+ avis vérifiés</span>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════ ABOUT ══════════════ -->
+<section id="about">
+  <div class="about-inner">
+    <div class="about-visual reveal">
+      <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=800&q=80&fit=crop" alt="Intérieur bistrot" class="about-img-main"/>
+      <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=400&q=80&fit=crop" alt="Cuisine" class="about-img-accent"/>
+      <div class="about-badge">
+        <span class="about-badge-num">4.8</span>
+        <span class="about-badge-text">★ Google Reviews</span>
+      </div>
+    </div>
+    <div class="about-text">
+      <p class="section-label" data-i18n="about_label">Notre Histoire</p>
+      <h2 class="section-title reveal" data-i18n="about_title">Un Bistrot au Cœur<br>du 15<sup>e</sup> Arrondissement</h2>
+      <p class="section-body reveal reveal-delay-1" data-i18n="about_body1">Au Dôme Paris 15, nous perpétuons la grande tradition de la cuisine française avec sincérité et passion. Chaque plat est préparé avec des produits frais soigneusement sélectionnés, des saveurs soigneusement équilibrées, et tout l'amour du métier.</p>
+      <p class="section-body reveal reveal-delay-2" data-i18n="about_body2">Nichés près de la Porte de Versailles, nous accueillons familles, amis et voyageurs dans un cadre chaleureux et convivial. Notre équipe attentionnée veille à ce que chaque visite soit une expérience mémorable.</p>
+      <div class="about-features reveal reveal-delay-3">
+        <div class="about-feature">
+          <span class="feature-icon">🍷</span>
+          <div>
+            <span class="feature-label" data-i18n="feat1_title">Cuisine Authentique</span>
+            <span class="feature-desc" data-i18n="feat1_desc">Recettes traditionnelles françaises</span>
+          </div>
+        </div>
+        <div class="about-feature">
+          <span class="feature-icon">🤝</span>
+          <div>
+            <span class="feature-label" data-i18n="feat2_title">Accueil Familial</span>
+            <span class="feature-desc" data-i18n="feat2_desc">Service chaleureux et attentionné</span>
+          </div>
+        </div>
+        <div class="about-feature">
+          <span class="feature-icon">🌿</span>
+          <div>
+            <span class="feature-label" data-i18n="feat3_title">Produits Frais</span>
+            <span class="feature-desc" data-i18n="feat3_desc">Sélection rigoureuse des ingrédients</span>
+          </div>
+        </div>
+        <div class="about-feature">
+          <span class="feature-icon">📍</span>
+          <div>
+            <span class="feature-label" data-i18n="feat4_title">Paris 15</span>
+            <span class="feature-desc" data-i18n="feat4_desc">Près de Porte de Versailles</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ MENU ══════════════ -->
+<section id="menu">
+  <div class="menu-inner">
+    <div class="menu-header">
+      <p class="section-label" style="justify-content:center;" data-i18n="menu_label">Notre Carte</p>
+      <h2 class="section-title light reveal" data-i18n="menu_title">Une Carte Française<br>Généreuse & Sincère</h2>
+    </div>
+
+    <div class="menu-tabs">
+      <button class="menu-tab active" onclick="switchTab('starters')" data-i18n="tab_starters">Entrées</button>
+      <button class="menu-tab" onclick="switchTab('mains')" data-i18n="tab_mains">Plats</button>
+      <button class="menu-tab" onclick="switchTab('salads')" data-i18n="tab_salads">Salades</button>
+      <button class="menu-tab" onclick="switchTab('burgers')" data-i18n="tab_burgers">Burgers</button>
+      <button class="menu-tab" onclick="switchTab('desserts')" data-i18n="tab_desserts">Desserts</button>
+      <button class="menu-tab" onclick="switchTab('drinks')" data-i18n="tab_drinks">Boissons</button>
+    </div>
+
+    <!-- STARTERS -->
+    <div class="menu-panel active" id="panel-starters">
+      <div class="menu-grid">
+        <div class="menu-item"><div class="menu-item-left"><div class="menu-item-name">Filet de hareng sur charlotte</div><div class="menu-item-desc" data-i18n="d_hareng">Hareng sur pommes de terre en charlotte</div></div><div class="menu-item-price">9,50€</div></div>
+        <div class="menu-item"><div class="menu-item-left"><div class="menu-item-name">Tomate mozzarella</div><div class="menu-item-desc" data-i18n="d_tomozz">Tomate et mozzarella, sauce maison</div></div><div class="menu-item-price">8,90€</div></div>
+        <div class="menu-item"><div class="menu-item-left"><div class="menu-item-name">Salade de sardines</div><div class="menu-item-desc" data-i18n="d_sardines">Salade fraîche aux sardines marinées</div></div><div class="menu-item-price">8,90€</div></div>
+        <div class="menu-item"><div class="menu-item-left"><div class="menu-item-name">Œuf mayonnaise</div><div class="menu-item-desc" data-i18n="d_oeuf">Œufs durs, mayonnaise maison</div></div><div class="menu-item-price">8,90€</div></div>
+        <div class="menu-item"><div class="menu-item-left"><div class="menu-item-name">Escargots</div><div class="menu-item-desc" data-i18n="d_escargot">Au beurre persillé · 6 ou 12 pièces</div></div><div class="menu-item-price">9,90€ / 17€</div></div>
+        <div class="menu-item"><div class="menu-item-left"><div class="menu-item-name">Salade aux cœurs d'artichauts</div><div class="menu-item-desc" data-i18n="d_artichaut">Artichauts marinés, vinaigrette maison</div></div><div class="menu-item-price">9,50€</div></div>
+        <div class="menu-item"><div class="menu-item-left"><div class="menu-item-name">Burrata e tomates cerises</div><div class="menu-item-desc" data-i18n="d_burrata">Burrata crémeuse, tomates cerises rôties</div></div><div class="menu-item-price">13,90€</div></div>
+      </div>
+    </div>
+
+    <!-- MAINS -->
+    <div class="menu-panel" id="panel-mains">
+      <div class="menu-grid">
+        <div class="menu-item"><div class="menu-item-left"><div class="menu-item-name">Bœuf Bourguignon ✦</div><div class="menu-item-desc" data-i18n="d_boeuf">Notre signature · mijotée lentement au vin rouge</div></div><div class="menu-item-price">27,90€</div></div>
+        <div class="menu-item"><div class="menu-item-left"><div class="menu-item-name">Confit de Canard</div><div class="menu-item-desc" data-i18n="d_canard">Pommes sarladaises, jus de canard</div></div><div class="menu-item-price">28,90€</div></div>
+        <div class="menu-item"><div class="menu-item-left"><div class="menu-item-name">Entrecôte 300g</div><div class="menu-item-desc" data-i18n="d_entrecote">Bœuf français, sauce de votre choix</div></div><div class="menu-item-price">34,90€</div></div>
+        <div class="menu-item"><div class="menu-item-left"><div class="menu-item-name">Tartare de Bœuf</div><div class="menu-item-desc" data-i18n="d_tartare">Bœuf haché, frites maison, salade</div></div><div class="menu-item-price">21,90€</div></div>
+        <div class="menu-item"><div class="menu-item-left"><div class="menu-item-name">Dorade Royale</div><div class="menu-item-desc" data-i18n="d_dorade">Riz, haricots verts, beurre citronné</div></div><div class="menu-item-price">25,90€</div></div>
+        <div class="menu-item"><div class="menu-item-left"><div class="menu-item-name">Pavée de Saumon</div><div class="menu-item-desc" data-i18n="d_saumon">Riz, haricots verts, sauce crème</div></div><div class="menu-item-price">25,90€</div></div>
+        <div class="menu-item"><div class="menu-item-left"><div class="menu-item-name">Filet de Bar</div><div class="menu-item-desc" data-i18n="d_bar">Riz, haricots verts, salade</div></div><div class="menu-item-price">27,90€</div></div>
+        <div class="menu-item"><div class="menu-item-left"><div class="menu-item-name">Bar en entier Royal</div><div class="menu-item-desc" data-i18n="d_barroyal">Bar entier, frites maison, salade</div></div><div class="menu-item-price">29,00€</div></div>
+        <div class="menu-item"><div class="menu-item-left"><div class="menu-item-name">Joue de Bœuf</div><div class="menu-item-desc" data-i18n="d_joue">Braisée lentement, frites maison</div></div><div class="menu-item-price">21,90€</div></div>
+        <div class="menu-item"><div class="menu-item-left"><div class="menu-item-name">Pièce du Boucher</div><div class="menu-item-desc" data-i18n="d_boucher">Pièce du jour, frites maison, salade</div></div><div class="menu-item-price">26,90€</div></div>
+        <div class="menu-item"><div class="menu-item-left"><div class="menu-item-name">Steak à Cheval</div><div class="menu-item-desc" data-i18n="d_cheval">Steak haché, œuf au plat, frites</div></div><div class="menu-item-price">21,90€</div></div>
+        <div class="menu-item"><div class="menu-item-left"><div class="menu-item-name">Penne au Saumon Frais</div><div class="menu-item-desc" data-i18n="d_penne">Pâtes fraîches, saumon, crème</div></div><div class="menu-item-price">25,90€</div></div>
+        <div class="menu-item"><div class="menu-item-left"><div class="menu-item-name">Andouillette</div><div class="menu-item-desc" data-i18n="d_andouil">Frites maison, salade verte</div></div><div class="menu-item-price">18,90€</div></div>
+      </div>
+    </div>
+
+    <!-- SALADS -->
+    <div class="menu-panel" id="panel-salads">
+      <div class="menu-grid">
+        <div class="menu-item"><div class="menu-item-left"><div class="menu-item-name">Salade Caesar</div><div class="menu-item-desc" data-i18n="d_caesar">Poulet pané, parmesan, croûtons, sauce caesar</div></div><div class="menu-item-price">20,90€</div></div>
+        <div class="menu-item"><div class="menu-item-left"><div class="menu-item-name">Salade Niçoise</div><div class="menu-item-desc" data-i18n="d_nicoise">Thon, anchois, olives, riz, haricots verts</div></div><div class="menu-item-price">22,90€</div></div>
+        <div class="menu-item"><div class="menu-item-left"><div class="menu-item-name">Salade du Pêcheur</div><div class="menu-item-desc" data-i18n="d_pecheur">Saumon fumé, crevettes, tomates</div></div><div class="menu-item-price">21,90€</div></div>
+        <div class="menu-item"><div class="menu-item-left"><div class="menu-item-name">Salade Auvergnate</div><div class="menu-item-desc" data-i18n="d_auvergne">Cantal, jambon, tomates, pommes de terre</div></div><div class="menu-item-price">19,90€</div></div>
+      </div>
+    </div>
+
+    <!-- BURGERS -->
+    <div class="menu-panel" id="panel-burgers">
+      <div class="menu-grid">
+        <div class="menu-item"><div class="menu-item-left"><div class="menu-item-name">Burger du Chef</div><div class="menu-item-desc" data-i18n="d_bchef">150g bœuf, frites, salade · Meilleur burger du quartier</div></div><div class="menu-item-price">18,90€</div></div>
+        <div class="menu-item"><div class="menu-item-left"><div class="menu-item-name">Burger du Dôme ✦</div><div class="menu-item-desc" data-i18n="d_bdome">Double 150g bœuf, œufs, frites · Notre signature</div></div><div class="menu-item-price">29,90€</div></div>
+        <div class="menu-item"><div class="menu-item-left"><div class="menu-item-name">Burger Chicken</div><div class="menu-item-desc" data-i18n="d_bchick">Poulet pané croustillant, sauce cheddar, frites</div></div><div class="menu-item-price">17,90€</div></div>
+        <div class="menu-item"><div class="menu-item-left"><div class="menu-item-name">Burger Valais Suisse</div><div class="menu-item-desc" data-i18n="d_bvalais">150g bœuf, fromage raclette suisse, frites</div></div><div class="menu-item-price">25,90€</div></div>
+        <div class="menu-item"><div class="menu-item-left"><div class="menu-item-name">Burger Bleu d'Auvergne</div><div class="menu-item-desc" data-i18n="d_bbleu">150g bœuf, roquefort fondant, frites</div></div><div class="menu-item-price">26,90€</div></div>
+      </div>
+    </div>
+
+    <!-- DESSERTS -->
+    <div class="menu-panel" id="panel-desserts">
+      <div class="menu-grid">
+        <div class="menu-item"><div class="menu-item-left"><div class="menu-item-name">Tiramisu Spéculos ✦</div><div class="menu-item-desc" data-i18n="d_tira">Tiramisu maison au biscuit spéculos</div></div><div class="menu-item-price">5,90€</div></div>
+        <div class="menu-item"><div class="menu-item-left"><div class="menu-item-name">Panna Cotta</div><div class="menu-item-desc" data-i18n="d_panna">Maison, coulis de fruits rouges</div></div><div class="menu-item-price">5,90€</div></div>
+        <div class="menu-item"><div class="menu-item-left"><div class="menu-item-name">Mousse au Chocolat</div><div class="menu-item-desc" data-i18n="d_choc">Maison, chocolat noir intense</div></div><div class="menu-item-price">5,90€</div></div>
+        <div class="menu-item"><div class="menu-item-left"><div class="menu-item-name">Tarte du Jour</div><div class="menu-item-desc" data-i18n="d_tarte">Maison · selon la saison</div></div><div class="menu-item-price">5,90€</div></div>
+        <div class="menu-item"><div class="menu-item-left"><div class="menu-item-name">Café Gourmand</div><div class="menu-item-desc" data-i18n="d_cafe">Expresso accompagné de 3 mini-desserts</div></div><div class="menu-item-price">8,90€</div></div>
+        <div class="menu-item"><div class="menu-item-left"><div class="menu-item-name">Assiette de Fromages</div><div class="menu-item-desc" data-i18n="d_fromage">Sélection de fromages affinés, pain grillé</div></div><div class="menu-item-price">7,90€</div></div>
+      </div>
+    </div>
+
+    <!-- DRINKS -->
+    <div class="menu-panel" id="panel-drinks">
+      <div class="menu-grid">
+        <div class="menu-item"><div class="menu-item-left"><div class="menu-item-name">Cocktails classiques</div><div class="menu-item-desc" data-i18n="d_cock1">Mojito, Caipirinha, Piña Colada, Spritz, Gin Tonic</div></div><div class="menu-item-price">11,90€</div></div>
+        <div class="menu-item"><div class="menu-item-left"><div class="menu-item-name">Cocktails Signature</div><div class="menu-item-desc" data-i18n="d_cock2">Espresso Martini, Moscow Mule, Pornstar Martini</div></div><div class="menu-item-price">13,90€</div></div>
+        <div class="menu-item"><div class="menu-item-left"><div class="menu-item-name">Cocktails Sans Alcool</div><div class="menu-item-desc" data-i18n="d_noalc">Virgin Mojito, Virgin Colada</div></div><div class="menu-item-price">9,00€</div></div>
+        <div class="menu-item"><div class="menu-item-left"><div class="menu-item-name">Vins au Verre</div><div class="menu-item-desc" data-i18n="d_wineglass">Rouge, Blanc, Rosé · sélection du moment</div></div><div class="menu-item-price">dès 5,50€</div></div>
+        <div class="menu-item"><div class="menu-item-left"><div class="menu-item-name">Vins en Bouteille</div><div class="menu-item-desc" data-i18n="d_winebottle">Côte du Rhône, Chardonnay, Sancerre…</div></div><div class="menu-item-price">dès 27€</div></div>
+        <div class="menu-item"><div class="menu-item-left"><div class="menu-item-name">Champagne</div><div class="menu-item-desc" data-i18n="d_champ">Bouteille 75cl · pour célébrer</div></div><div class="menu-item-price">75,00€</div></div>
+        <div class="menu-item"><div class="menu-item-left"><div class="menu-item-name">Bières Pression</div><div class="menu-item-desc" data-i18n="d_beer">Grimbergen, Chouffe, IPA · 25cl ou 50cl</div></div><div class="menu-item-price">4,00€ – 11,90€</div></div>
+        <div class="menu-item"><div class="menu-item-left"><div class="menu-item-name">Kir / Kir Royal</div><div class="menu-item-desc" data-i18n="d_kir">Cassis, Mûre ou Pêche · Kir Royal au Champagne</div></div><div class="menu-item-price">6,50€ / 12,90€</div></div>
+      </div>
+    </div>
+
+    <p class="menu-note" data-i18n="menu_note">✦ Plats signature · Les prix s'entendent TTC · Service en salle, à emporter & livraison disponibles</p>
+  </div>
+</section>
+
+<!-- ══════════════ RESERVATION ══════════════ -->
+<section id="reservation">
+  <div class="reservation-inner">
+    <p class="section-label" data-i18n="res_label">Réservation</p>
+    <h2 class="section-title reveal" data-i18n="res_title">Réservez Votre Table</h2>
+    <p class="section-body reveal reveal-delay-1" data-i18n="res_body">Rejoignez-nous pour un repas inoubliable dans l'atmosphère authentique du Bistrot Le Dôme. Réservation rapide et facile en quelques secondes.</p>
+    <div class="reservation-trust reveal reveal-delay-2">
+      <div class="trust-item"><span class="trust-icon">⚡</span><span data-i18n="trust1">Confirmation immédiate</span></div>
+      <div class="trust-item"><span class="trust-icon">🔒</span><span data-i18n="trust2">Sans engagement</span></div>
+      <div class="trust-item"><span class="trust-icon">📱</span><span data-i18n="trust3">Paiement sur place</span></div>
+    </div>
+    <div class="reservation-btn-wrap reveal reveal-delay-3">
+      <a href="https://wiicmenu-qrcode.com/app/reservation_client.php?resto=2776" target="_blank" class="btn-reserve-main">
+        <span>📅</span> <span data-i18n="res_btn">Réserver en Ligne</span>
+      </a>
+    </div>
+    <p class="reservation-sub reveal reveal-delay-4" data-i18n="res_sub">Rapide et simple · Confirmation en quelques secondes</p>
+    <div class="reservation-contact-alt reveal">
+      <span data-i18n="res_or">Ou appelez-nous directement : </span>
+      <a href="tel:+33987766020">+33 9 87 76 60 20</a>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ GALLERY ══════════════ -->
+<section id="gallery">
+  <div class="gallery-inner">
+    <div class="gallery-header">
+      <p class="section-label" data-i18n="gallery_label">Galerie</p>
+      <h2 class="section-title reveal" data-i18n="gallery_title">L'Ambiance du Dôme</h2>
+    </div>
+    <div class="gallery-grid">
+      <div class="gallery-item reveal" onclick="openLightbox(this.querySelector('img').src)">
+        <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=900&q=80&fit=crop&crop=center" alt="Cuisine française gastronomique"/>
+        <div class="gallery-overlay"><span data-i18n="gallery_food">Cuisine</span></div>
+      </div>
+      <div class="gallery-item reveal reveal-delay-1" onclick="openLightbox(this.querySelector('img').src)">
+        <img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?w=600&q=80&fit=crop" alt="Intérieur bistrot"/>
+        <div class="gallery-overlay"><span data-i18n="gallery_interior">Intérieur</span></div>
+      </div>
+      <div class="gallery-item reveal reveal-delay-2" onclick="openLightbox(this.querySelector('img').src)">
+        <img src="https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?w=600&q=80&fit=crop" alt="Boissons et cocktails"/>
+        <div class="gallery-overlay"><span data-i18n="gallery_drinks">Boissons</span></div>
+      </div>
+      <div class="gallery-item reveal reveal-delay-3" onclick="openLightbox(this.querySelector('img').src)">
+        <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&q=80&fit=crop&crop=bottom" alt="Table dressée"/>
+        <div class="gallery-overlay"><span data-i18n="gallery_table">La Table</span></div>
+      </div>
+      <div class="gallery-item reveal reveal-delay-1" onclick="openLightbox(this.querySelector('img').src)">
+        <img src="https://images.unsplash.com/photo-1600891964092-4316c288032e?w=600&q=80&fit=crop" alt="Viande grillée"/>
+        <div class="gallery-overlay"><span data-i18n="gallery_grill">Plats</span></div>
+      </div>
+      <div class="gallery-item reveal reveal-delay-2" onclick="openLightbox(this.querySelector('img').src)">
+        <img src="https://images.unsplash.com/photo-1551024601-bec78aea704b?w=600&q=80&fit=crop" alt="Desserts maison"/>
+        <div class="gallery-overlay"><span data-i18n="gallery_dessert">Desserts</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox">
+  <button class="lightbox-close" onclick="closeLightbox()">✕</button>
+  <img src="" id="lightboxImg" alt="Gallery"/>
+</div>
+
+<!-- ══════════════ REVIEWS ══════════════ -->
+<section id="reviews">
+  <div class="reviews-inner">
+    <div class="reviews-header">
+      <p class="section-label" data-i18n="rev_label">Témoignages</p>
+      <h2 class="section-title light reveal" data-i18n="rev_title">Ce Que Disent Nos Clients</h2>
+      <div class="rating-display reveal reveal-delay-1">
+        <div class="rating-number">4.8</div>
+        <div class="rating-details">
+          <div class="rating-stars">★★★★★</div>
+          <div class="rating-count" data-i18n="rev_count">Basé sur 1 700+ avis Google</div>
+        </div>
+      </div>
+    </div>
+    <div class="reviews-grid">
+      <div class="review-card reveal">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text" data-i18n="rev1_text">"Une expérience absolument charmante. Le bœuf bourguignon était d'une richesse incomparable, et le service nous a fait nous sentir comme à la maison. Je reviendrai sans aucun doute."</p>
+        <div class="review-author">Marie L.</div>
+        <div class="review-date" data-i18n="rev1_date">Paris · il y a 2 semaines</div>
+      </div>
+      <div class="review-card reveal reveal-delay-1">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text" data-i18n="rev2_text">"Authentique, généreux, délicieux. Les escargots au beurre persillé étaient parfaits. L'ambiance chaleureuse du bistrot nous a transportés dans le vrai Paris."</p>
+        <div class="review-author">Thomas B.</div>
+        <div class="review-date" data-i18n="rev2_date">Paris 15 · il y a 1 mois</div>
+      </div>
+      <div class="review-card reveal reveal-delay-2">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text" data-i18n="rev3_text">"Le meilleur burger que j'ai mangé dans le quartier, sans exagération. Personnel adorable et accueil de qualité. Un incontournable si vous êtes dans le 15e."</p>
+        <div class="review-author">Sophie & Marc</div>
+        <div class="review-date" data-i18n="rev3_date">Visiteur · il y a 3 semaines</div>
+      </div>
+      <div class="review-card reveal">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text" data-i18n="rev4_text">"A wonderful discovery near Porte de Versailles. The confit de canard was perfectly crispy and the service was incredibly warm and attentive. A true Parisian bistro experience."</p>
+        <div class="review-author">James K.</div>
+        <div class="review-date" data-i18n="rev4_date">London · 2 weeks ago</div>
+      </div>
+      <div class="review-card reveal reveal-delay-1">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text" data-i18n="rev5_text">"Les plats étaient généreux et savoureux. L'entrecôte sauce poivre était parfaitement cuite. Une cuisine soignée, des saveurs bien équilibrées. On reviendra en famille !"</p>
+        <div class="review-author">Isabelle M.</div>
+        <div class="review-date" data-i18n="rev5_date">Paris · il y a 1 semaine</div>
+      </div>
+      <div class="review-card reveal reveal-delay-2">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text" data-i18n="rev6_text">"Très belle découverte ! Cadre chaleureux, personnel souriant et attentionné. Le tiramisu spéculos était exceptionnel. Une adresse à garder précieusement dans ses favoris."</p>
+        <div class="review-author">Camille R.</div>
+        <div class="review-date" data-i18n="rev6_date">Île-de-France · il y a 5 jours</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ CONTACT ══════════════ -->
+<section id="contact">
+  <div class="contact-inner">
+    <div class="contact-info">
+      <p class="section-label" data-i18n="contact_label">Nous Trouver</p>
+      <h2 class="section-title reveal" data-i18n="contact_title">Contact &<br>Informations</h2>
+      
+      <div class="contact-detail reveal reveal-delay-1">
+        <div class="contact-icon-wrap">📍</div>
+        <div>
+          <span class="contact-detail-label" data-i18n="contact_addr_label">Adresse</span>
+          <div class="contact-detail-value"><a href="https://maps.app.goo.gl/hrBXHoZS3ro4AAto7" target="_blank">6 Rue du Hameau, 75015 Paris<br>Métro : Porte de Versailles</a></div>
+        </div>
+      </div>
+
+      <div class="contact-detail reveal reveal-delay-2">
+        <div class="contact-icon-wrap">📞</div>
+        <div>
+          <span class="contact-detail-label" data-i18n="contact_phone_label">Téléphone</span>
+          <div class="contact-detail-value"><a href="tel:+33987766020">+33 9 87 76 60 20</a></div>
+        </div>
+      </div>
+
+      <div class="contact-detail reveal reveal-delay-3">
+        <div class="contact-icon-wrap">🕐</div>
+        <div>
+          <span class="contact-detail-label" data-i18n="contact_hours_label">Horaires d'ouverture</span>
+          <div class="contact-detail-value">
+            <div class="hours-grid">
+              <div class="hour-row"><span class="hour-day" data-i18n="day_mon">Lundi</span><span class="hour-time">11h – 22h</span></div>
+              <div class="hour-row"><span class="hour-day" data-i18n="day_tue">Mardi</span><span class="hour-time">11h – 22h</span></div>
+              <div class="hour-row"><span class="hour-day" data-i18n="day_wed">Mercredi</span><span class="hour-time">11h – 22h</span></div>
+              <div class="hour-row"><span class="hour-day" data-i18n="day_thu">Jeudi</span><span class="hour-time">11h – 22h</span></div>
+              <div class="hour-row"><span class="hour-day" data-i18n="day_fri">Vendredi</span><span class="hour-time">11h – 23h</span></div>
+              <div class="hour-row"><span class="hour-day" data-i18n="day_sat">Samedi</span><span class="hour-time">11h – 23h</span></div>
+              <div class="hour-row"><span class="hour-day" data-i18n="day_sun">Dimanche</span><span class="hour-time">11h – 22h</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-btns reveal">
+        <a href="tel:+33987766020" class="btn-green">📞 <span data-i18n="btn_call">Appeler</span></a>
+        <a href="https://wiicmenu-qrcode.com/app/reservation_client.php?resto=2776" target="_blank" class="btn-primary">📅 <span data-i18n="btn_reserve">Réserver</span></a>
+        <a href="https://maps.app.goo.gl/hrBXHoZS3ro4AAto7" target="_blank" class="btn-green">🗺 <span data-i18n="btn_map">Itinéraire</span></a>
+      </div>
+    </div>
+
+    <div class="reveal reveal-delay-2">
+      <div class="map-container">
+        <iframe 
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2626.3!2d2.2934!3d48.8366!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e6706e1d0bbba5%3A0xa7b0c1e1a8f7b7a0!2s6%20Rue%20du%20Hameau%2C%2075015%20Paris!5e0!3m2!1sfr!2sfr!4v1"
+          allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+          title="Restaurant Bistrot Le Dôme Paris 15">
+        </iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ FOOTER ══════════════ -->
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-brand-name">Restaurant Bistrot Le Dôme</div>
+      <span class="footer-brand-sub">Paris 15 · Cuisine Française Authentique</span>
+      <p class="footer-desc" data-i18n="footer_desc">Un bistrot parisien traditionnel où la cuisine française s'exprime avec générosité et authenticité, dans une atmosphère chaleureuse et conviviale depuis 2010.</p>
+    </div>
+    <div>
+      <div class="footer-heading" data-i18n="footer_nav">Navigation</div>
+      <ul class="footer-links">
+        <li><a href="#about" data-i18n="nav_about">Notre Histoire</a></li>
+        <li><a href="#menu" data-i18n="nav_menu">La Carte</a></li>
+        <li><a href="#gallery" data-i18n="nav_gallery">Galerie</a></li>
+        <li><a href="#reviews" data-i18n="nav_reviews">Avis Clients</a></li>
+        <li><a href="https://wiicmenu-qrcode.com/app/reservation_client.php?resto=2776" target="_blank" data-i18n="nav_reserve">Réserver</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-heading" data-i18n="footer_contact">Contact</div>
+      <ul class="footer-links">
+        <li><a href="https://maps.app.goo.gl/hrBXHoZS3ro4AAto7" target="_blank">6 Rue du Hameau, 75015 Paris</a></li>
+        <li><a href="tel:+33987766020">+33 9 87 76 60 20</a></li>
+        <li><span style="color:rgba(247,242,232,0.25);font-size:0.88rem;" data-i18n="footer_open">Ouvert 7j/7 · dès 11h00</span></li>
+        <li style="margin-top:8px;"><span style="color:var(--gold);font-size:0.88rem;">★★★★★ 4.8 / 5</span></li>
+        <li><span style="color:rgba(247,242,232,0.25);font-size:0.8rem;" data-i18n="footer_reviews">1 700+ avis Google</span></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span class="footer-copy" data-i18n="footer_copy">© 2025 Restaurant Bistrot Le Dôme Paris 15 · Tous droits réservés</span>
+    <span class="footer-copy" style="color:rgba(247,242,232,0.12);">Paris 15 · Porte de Versailles · Cuisine Française</span>
+  </div>
+</footer>
+
+<!-- ══════════════ JAVASCRIPT ══════════════ -->
+<script>
+// ─── TRANSLATIONS ───
+const translations = {
+  fr: {
+    logo_name: "Restaurant Bistrot",
+    logo_sub: "Le Dôme · Paris 15",
+    nav_about: "Notre Histoire",
+    nav_menu: "Menu",
+    nav_gallery: "Galerie",
+    nav_reviews: "Avis",
+    nav_contact: "Contact",
+    nav_reserve: "Réserver",
+    hero_eyebrow: "Paris 15 · Depuis 2010 · 4.8★ sur Google",
+    hero_title: "Vivez <em>l'Expérience</em><br>du Bistrot Parisien",
+    hero_sub: "Cuisine française authentique · Atmosphère chaleureuse · Service familial",
+    hero_cta1: "✦ Réserver une Table",
+    hero_cta2: "Voir la Carte",
+    scroll_down: "Découvrir",
+    info_rating: "Note",
+    info_address: "Adresse",
+    info_hours: "Horaires",
+    info_hours_val: "Ouvert tous les jours · 11h00",
+    info_price: "Prix moyen",
+    info_reviews: "Avis clients",
+    info_reviews_val: "1 700+ avis vérifiés",
+    about_label: "Notre Histoire",
+    about_title: "Un Bistrot au Cœur<br>du 15<sup>e</sup> Arrondissement",
+    about_body1: "Au Dôme Paris 15, nous perpétuons la grande tradition de la cuisine française avec sincérité et passion. Chaque plat est préparé avec des produits frais soigneusement sélectionnés, des saveurs soigneusement équilibrées, et tout l'amour du métier.",
+    about_body2: "Nichés près de la Porte de Versailles, nous accueillons familles, amis et voyageurs dans un cadre chaleureux et convivial. Notre équipe attentionnée veille à ce que chaque visite soit une expérience mémorable.",
+    feat1_title: "Cuisine Authentique",
+    feat1_desc: "Recettes traditionnelles françaises",
+    feat2_title: "Accueil Familial",
+    feat2_desc: "Service chaleureux et attentionné",
+    feat3_title: "Produits Frais",
+    feat3_desc: "Sélection rigoureuse des ingrédients",
+    feat4_title: "Paris 15",
+    feat4_desc: "Près de Porte de Versailles",
+    menu_label: "Notre Carte",
+    menu_title: "Une Carte Française<br>Généreuse & Sincère",
+    tab_starters: "Entrées",
+    tab_mains: "Plats",
+    tab_salads: "Salades",
+    tab_burgers: "Burgers",
+    tab_desserts: "Desserts",
+    tab_drinks: "Boissons",
+    menu_note: "✦ Plats signature · Les prix s'entendent TTC · Service en salle, à emporter & livraison disponibles",
+    res_label: "Réservation",
+    res_title: "Réservez Votre Table",
+    res_body: "Rejoignez-nous pour un repas inoubliable dans l'atmosphère authentique du Bistrot Le Dôme. Réservation rapide et facile en quelques secondes.",
+    trust1: "Confirmation immédiate",
+    trust2: "Sans engagement",
+    trust3: "Paiement sur place",
+    res_btn: "Réserver en Ligne",
+    res_sub: "Rapide et simple · Confirmation en quelques secondes",
+    res_or: "Ou appelez-nous directement : ",
+    gallery_label: "Galerie",
+    gallery_title: "L'Ambiance du Dôme",
+    gallery_food: "Cuisine",
+    gallery_interior: "Intérieur",
+    gallery_drinks: "Boissons",
+    gallery_table: "La Table",
+    gallery_grill: "Plats",
+    gallery_dessert: "Desserts",
+    rev_label: "Témoignages",
+    rev_title: "Ce Que Disent Nos Clients",
+    rev_count: "Basé sur 1 700+ avis Google",
+    rev1_text: "\"Une expérience absolument charmante. Le bœuf bourguignon était d'une richesse incomparable, et le service nous a fait nous sentir comme à la maison. Je reviendrai sans aucun doute.\"",
+    rev1_date: "Paris · il y a 2 semaines",
+    rev2_text: "\"Authentique, généreux, délicieux. Les escargots au beurre persillé étaient parfaits. L'ambiance chaleureuse du bistrot nous a transportés dans le vrai Paris.\"",
+    rev2_date: "Paris 15 · il y a 1 mois",
+    rev3_text: "\"Le meilleur burger que j'ai mangé dans le quartier, sans exagération. Personnel adorable et accueil de qualité. Un incontournable si vous êtes dans le 15e.\"",
+    rev3_date: "Visiteur · il y a 3 semaines",
+    rev4_text: "\"A wonderful discovery near Porte de Versailles. The confit de canard was perfectly crispy and the service was incredibly warm. A true Parisian bistro experience.\"",
+    rev4_date: "London · il y a 2 semaines",
+    rev5_text: "\"Les plats étaient généreux et savoureux. L'entrecôte sauce poivre était parfaitement cuite. Une cuisine soignée, des saveurs bien équilibrées. On reviendra en famille !\"",
+    rev5_date: "Paris · il y a 1 semaine",
+    rev6_text: "\"Très belle découverte ! Cadre chaleureux, personnel souriant et attentionné. Le tiramisu spéculos était exceptionnel. Une adresse à garder précieusement.\"",
+    rev6_date: "Île-de-France · il y a 5 jours",
+    contact_label: "Nous Trouver",
+    contact_title: "Contact &<br>Informations",
+    contact_addr_label: "Adresse",
+    contact_phone_label: "Téléphone",
+    contact_hours_label: "Horaires d'ouverture",
+    day_mon: "Lundi", day_tue: "Mardi", day_wed: "Mercredi", day_thu: "Jeudi",
+    day_fri: "Vendredi", day_sat: "Samedi", day_sun: "Dimanche",
+    btn_call: "Appeler",
+    btn_reserve: "Réserver",
+    btn_map: "Itinéraire",
+    footer_desc: "Un bistrot parisien traditionnel où la cuisine française s'exprime avec générosité et authenticité, dans une atmosphère chaleureuse et conviviale depuis 2010.",
+    footer_nav: "Navigation",
+    footer_contact: "Contact",
+    footer_open: "Ouvert 7j/7 · dès 11h00",
+    footer_reviews: "1 700+ avis Google",
+    footer_copy: "© 2025 Restaurant Bistrot Le Dôme Paris 15 · Tous droits réservés",
+    d_hareng: "Hareng sur pommes de terre en charlotte",
+    d_tomozz: "Tomate et mozzarella, sauce maison",
+    d_sardines: "Salade fraîche aux sardines marinées",
+    d_oeuf: "Œufs durs, mayonnaise maison",
+    d_escargot: "Au beurre persillé · 6 ou 12 pièces",
+    d_artichaut: "Artichauts marinés, vinaigrette maison",
+    d_burrata: "Burrata crémeuse, tomates cerises rôties",
+    d_boeuf: "Notre signature · mijotée lentement au vin rouge",
+    d_canard: "Pommes sarladaises, jus de canard",
+    d_entrecote: "Bœuf français, sauce de votre choix",
+    d_tartare: "Bœuf haché, frites maison, salade",
+    d_dorade: "Riz, haricots verts, beurre citronné",
+    d_saumon: "Riz, haricots verts, sauce crème",
+    d_bar: "Riz, haricots verts, salade",
+    d_barroyal: "Bar entier, frites maison, salade",
+    d_joue: "Braisée lentement, frites maison",
+    d_boucher: "Pièce du jour, frites maison, salade",
+    d_cheval: "Steak haché, œuf au plat, frites",
+    d_penne: "Pâtes fraîches, saumon, crème",
+    d_andouil: "Frites maison, salade verte",
+    d_caesar: "Poulet pané, parmesan, croûtons, sauce caesar",
+    d_nicoise: "Thon, anchois, olives, riz, haricots verts",
+    d_pecheur: "Saumon fumé, crevettes, tomates",
+    d_auvergne: "Cantal, jambon, tomates, pommes de terre",
+    d_bchef: "150g bœuf, frites, salade · Meilleur burger du quartier",
+    d_bdome: "Double 150g bœuf, œufs, frites · Notre signature",
+    d_bchick: "Poulet pané croustillant, sauce cheddar, frites",
+    d_bvalais: "150g bœuf, fromage raclette suisse, frites",
+    d_bbleu: "150g bœuf, roquefort fondant, frites",
+    d_tira: "Tiramisu maison au biscuit spéculos",
+    d_panna: "Maison, coulis de fruits rouges",
+    d_choc: "Maison, chocolat noir intense",
+    d_tarte: "Maison · selon la saison",
+    d_cafe: "Expresso accompagné de 3 mini-desserts",
+    d_fromage: "Sélection de fromages affinés, pain grillé",
+    d_cock1: "Mojito, Caipirinha, Piña Colada, Spritz, Gin Tonic",
+    d_cock2: "Espresso Martini, Moscow Mule, Pornstar Martini",
+    d_noalc: "Virgin Mojito, Virgin Colada",
+    d_wineglass: "Rouge, Blanc, Rosé · sélection du moment",
+    d_winebottle: "Côte du Rhône, Chardonnay, Sancerre…",
+    d_champ: "Bouteille 75cl · pour célébrer",
+    d_beer: "Grimbergen, Chouffe, IPA · 25cl ou 50cl",
+    d_kir: "Cassis, Mûre ou Pêche · Kir Royal au Champagne",
+  },
+  en: {
+    logo_name: "Bistrot Restaurant",
+    logo_sub: "Le Dôme · Paris 15",
+    nav_about: "Our Story",
+    nav_menu: "Menu",
+    nav_gallery: "Gallery",
+    nav_reviews: "Reviews",
+    nav_contact: "Contact",
+    nav_reserve: "Reserve",
+    hero_eyebrow: "Paris 15 · Since 2010 · 4.8★ on Google",
+    hero_title: "Experience <em>Authentic</em><br>Parisian Bistro Dining",
+    hero_sub: "Authentic French cuisine · Warm atmosphere · Family service",
+    hero_cta1: "✦ Reserve a Table",
+    hero_cta2: "View Menu",
+    scroll_down: "Discover",
+    info_rating: "Rating",
+    info_address: "Address",
+    info_hours: "Hours",
+    info_hours_val: "Open every day · from 11:00",
+    info_price: "Average price",
+    info_reviews: "Guest reviews",
+    info_reviews_val: "1,700+ verified reviews",
+    about_label: "Our Story",
+    about_title: "A Bistro in the Heart<br>of Paris 15",
+    about_body1: "At Le Dôme Paris 15, we carry on the great tradition of French cuisine with sincerity and passion. Every dish is prepared with carefully selected fresh ingredients, carefully balanced flavors, and all the love of the craft.",
+    about_body2: "Nestled near Porte de Versailles, we welcome families, friends and travelers in a warm and convivial setting. Our attentive team ensures every visit is a memorable experience.",
+    feat1_title: "Authentic Cuisine",
+    feat1_desc: "Traditional French recipes",
+    feat2_title: "Family Welcome",
+    feat2_desc: "Warm and attentive service",
+    feat3_title: "Fresh Produce",
+    feat3_desc: "Rigorous ingredient selection",
+    feat4_title: "Paris 15",
+    feat4_desc: "Near Porte de Versailles",
+    menu_label: "Our Menu",
+    menu_title: "A French Menu<br>Generous & Sincere",
+    tab_starters: "Starters",
+    tab_mains: "Mains",
+    tab_salads: "Salads",
+    tab_burgers: "Burgers",
+    tab_desserts: "Desserts",
+    tab_drinks: "Drinks",
+    menu_note: "✦ Signature dishes · All prices inc. tax · Dine-in, takeaway & delivery available",
+    res_label: "Reservation",
+    res_title: "Reserve Your Table",
+    res_body: "Join us for an unforgettable meal in the authentic atmosphere of Le Dôme. Quick and easy reservation in just seconds.",
+    trust1: "Instant confirmation",
+    trust2: "No commitment",
+    trust3: "Pay on site",
+    res_btn: "Book Online",
+    res_sub: "Quick & easy · Confirmation in seconds",
+    res_or: "Or call us directly: ",
+    gallery_label: "Gallery",
+    gallery_title: "The Dôme Atmosphere",
+    gallery_food: "Food",
+    gallery_interior: "Interior",
+    gallery_drinks: "Drinks",
+    gallery_table: "The Table",
+    gallery_grill: "Dishes",
+    gallery_dessert: "Desserts",
+    rev_label: "Testimonials",
+    rev_title: "What Our Guests Say",
+    rev_count: "Based on 1,700+ Google reviews",
+    rev1_text: "\"An absolutely charming experience. The bœuf bourguignon was incomparably rich, and the service made us feel right at home. I'll definitely be back.\"",
+    rev1_date: "Paris · 2 weeks ago",
+    rev2_text: "\"Authentic, generous, delicious. The snails in herb butter were perfect. The warm bistro ambiance truly transported us to real Paris.\"",
+    rev2_date: "Paris 15 · 1 month ago",
+    rev3_text: "\"The best burger I've had in the neighbourhood, no exaggeration. Lovely staff and quality welcome. A must if you're in the 15th.\"",
+    rev3_date: "Visitor · 3 weeks ago",
+    rev4_text: "\"A wonderful discovery near Porte de Versailles. The confit de canard was perfectly crispy and the service was incredibly warm. A true Parisian bistro experience.\"",
+    rev4_date: "London · 2 weeks ago",
+    rev5_text: "\"The dishes were generous and flavorful. The pepper steak was perfectly cooked. Careful cooking, well-balanced flavors. We'll be back as a family!\"",
+    rev5_date: "Paris · 1 week ago",
+    rev6_text: "\"A great find! Warm setting, smiling and attentive staff. The Biscoff tiramisu was exceptional. An address to keep safely in your favorites.\"",
+    rev6_date: "Île-de-France · 5 days ago",
+    contact_label: "Find Us",
+    contact_title: "Contact &<br>Information",
+    contact_addr_label: "Address",
+    contact_phone_label: "Phone",
+    contact_hours_label: "Opening Hours",
+    day_mon: "Monday", day_tue: "Tuesday", day_wed: "Wednesday", day_thu: "Thursday",
+    day_fri: "Friday", day_sat: "Saturday", day_sun: "Sunday",
+    btn_call: "Call",
+    btn_reserve: "Reserve",
+    btn_map: "Directions",
+    footer_desc: "A traditional Parisian bistro where French cuisine expresses itself with generosity and authenticity, in a warm and convivial atmosphere since 2010.",
+    footer_nav: "Navigation",
+    footer_contact: "Contact",
+    footer_open: "Open 7 days · from 11:00",
+    footer_reviews: "1,700+ Google reviews",
+    footer_copy: "© 2025 Restaurant Bistrot Le Dôme Paris 15 · All rights reserved",
+    d_hareng: "Herring fillet on potato charlotte",
+    d_tomozz: "Tomato and mozzarella, house dressing",
+    d_sardines: "Fresh salad with marinated sardines",
+    d_oeuf: "Hard-boiled eggs, house mayonnaise",
+    d_escargot: "Herb butter · 6 or 12 pieces",
+    d_artichaut: "Marinated artichoke hearts, house vinaigrette",
+    d_burrata: "Creamy burrata, roasted cherry tomatoes",
+    d_boeuf: "Our signature · slow-cooked in red wine",
+    d_canard: "Sarladaise potatoes, duck jus",
+    d_entrecote: "French beef, sauce of your choice",
+    d_tartare: "Minced beef, house fries, salad",
+    d_dorade: "Rice, green beans, lemon butter",
+    d_saumon: "Rice, green beans, cream sauce",
+    d_bar: "Rice, green beans, salad",
+    d_barroyal: "Whole sea bass, house fries, salad",
+    d_joue: "Slowly braised, house fries",
+    d_boucher: "Butcher's cut, house fries, salad",
+    d_cheval: "Beef patty, fried egg, fries",
+    d_penne: "Fresh pasta, salmon, cream",
+    d_andouil: "House fries, green salad",
+    d_caesar: "Breaded chicken, parmesan, croutons, caesar dressing",
+    d_nicoise: "Tuna, anchovies, olives, rice, green beans",
+    d_pecheur: "Smoked salmon, shrimp, tomatoes",
+    d_auvergne: "Cantal cheese, ham, tomatoes, potatoes",
+    d_bchef: "150g beef, fries, salad · Best burger in the neighbourhood",
+    d_bdome: "Double 150g beef, eggs, fries · Our signature",
+    d_bchick: "Crispy breaded chicken, cheddar sauce, fries",
+    d_bvalais: "150g beef, Swiss raclette cheese, fries",
+    d_bbleu: "150g beef, melted Roquefort, fries",
+    d_tira: "House tiramisu with Biscoff biscuit",
+    d_panna: "House-made, red fruit coulis",
+    d_choc: "House-made, intense dark chocolate",
+    d_tarte: "House-made · seasonal",
+    d_cafe: "Espresso served with 3 mini desserts",
+    d_fromage: "Selection of aged cheeses, toasted bread",
+    d_cock1: "Mojito, Caipirinha, Piña Colada, Spritz, Gin Tonic",
+    d_cock2: "Espresso Martini, Moscow Mule, Pornstar Martini",
+    d_noalc: "Virgin Mojito, Virgin Colada",
+    d_wineglass: "Red, White, Rosé · selection of the moment",
+    d_winebottle: "Côte du Rhône, Chardonnay, Sancerre…",
+    d_champ: "75cl bottle · to celebrate",
+    d_beer: "Grimbergen, Chouffe, IPA · 25cl or 50cl",
+    d_kir: "Blackcurrant, Blackberry or Peach · Kir Royal with Champagne",
+  },
+  es: {
+    logo_name: "Bistrot Restaurant",
+    logo_sub: "Le Dôme · París 15",
+    nav_about: "Nuestra Historia",
+    nav_menu: "Menú",
+    nav_gallery: "Galería",
+    nav_reviews: "Opiniones",
+    nav_contact: "Contacto",
+    nav_reserve: "Reservar",
+    hero_eyebrow: "París 15 · Desde 2010 · 4.8★ en Google",
+    hero_title: "Vive la <em>Auténtica</em><br>Experiencia del Bistrot Parisino",
+    hero_sub: "Cocina francesa auténtica · Ambiente acogedor · Servicio familiar",
+    hero_cta1: "✦ Reservar una Mesa",
+    hero_cta2: "Ver Menú",
+    scroll_down: "Descubrir",
+    info_rating: "Valoración",
+    info_address: "Dirección",
+    info_hours: "Horarios",
+    info_hours_val: "Abierto todos los días · 11:00",
+    info_price: "Precio medio",
+    info_reviews: "Opiniones",
+    info_reviews_val: "1.700+ opiniones verificadas",
+    about_label: "Nuestra Historia",
+    about_title: "Un Bistrot en el Corazón<br>del Distrito 15 de París",
+    about_body1: "En Le Dôme París 15, perpetuamos la gran tradición de la cocina francesa con sinceridad y pasión. Cada plato se prepara con ingredientes frescos cuidadosamente seleccionados, sabores cuidadosamente equilibrados y todo el amor del oficio.",
+    about_body2: "Situados cerca de la Porte de Versailles, acogemos a familias, amigos y viajeros en un ambiente cálido y acogedor. Nuestro equipo atento se asegura de que cada visita sea una experiencia memorable.",
+    feat1_title: "Cocina Auténtica",
+    feat1_desc: "Recetas tradicionales francesas",
+    feat2_title: "Acogida Familiar",
+    feat2_desc: "Servicio cálido y atento",
+    feat3_title: "Productos Frescos",
+    feat3_desc: "Selección rigurosa de ingredientes",
+    feat4_title: "París 15",
+    feat4_desc: "Cerca de Porte de Versailles",
+    menu_label: "Nuestra Carta",
+    menu_title: "Una Carta Francesa<br>Generosa & Sincera",
+    tab_starters: "Entrantes",
+    tab_mains: "Principales",
+    tab_salads: "Ensaladas",
+    tab_burgers: "Burgers",
+    tab_desserts: "Postres",
+    tab_drinks: "Bebidas",
+    menu_note: "✦ Platos estrella · Precios con IVA · Servicio en sala, para llevar y entrega disponibles",
+    res_label: "Reservas",
+    res_title: "Reserve Su Mesa",
+    res_body: "Únase a nosotros para una comida inolvidable en la auténtica atmósfera de Le Dôme. Reserva rápida y sencilla en pocos segundos.",
+    trust1: "Confirmación inmediata",
+    trust2: "Sin compromiso",
+    trust3: "Pago en el local",
+    res_btn: "Reservar Online",
+    res_sub: "Rápido y sencillo · Confirmación en segundos",
+    res_or: "O llámenos directamente: ",
+    gallery_label: "Galería",
+    gallery_title: "El Ambiente del Dôme",
+    gallery_food: "Cocina",
+    gallery_interior: "Interior",
+    gallery_drinks: "Bebidas",
+    gallery_table: "La Mesa",
+    gallery_grill: "Platos",
+    gallery_dessert: "Postres",
+    rev_label: "Testimonios",
+    rev_title: "Lo Que Dicen Nuestros Clientes",
+    rev_count: "Basado en 1.700+ reseñas de Google",
+    rev1_text: "\"Una experiencia absolutamente encantadora. El bœuf bourguignon era incomparablemente rico, y el servicio nos hizo sentir como en casa.\"",
+    rev1_date: "París · hace 2 semanas",
+    rev2_text: "\"Auténtico, generoso, delicioso. Los caracoles a la mantequilla de hierbas eran perfectos. El ambiente cálido del bistrot nos transportó al París real.\"",
+    rev2_date: "París 15 · hace 1 mes",
+    rev3_text: "\"La mejor hamburguesa que he comido en el barrio, sin exageración. Personal adorable y bienvenida de calidad. Imprescindible si estás en el distrito 15.\"",
+    rev3_date: "Visitante · hace 3 semanas",
+    rev4_text: "\"Un descubrimiento maravilloso cerca de Porte de Versailles. El confit de canard estaba perfectamente crujiente y el servicio era increíblemente cálido.\"",
+    rev4_date: "Londres · hace 2 semanas",
+    rev5_text: "\"Los platos eran generosos y sabrosos. El entrecot a la pimienta estaba perfectamente cocinado. Cocina cuidada, sabores bien equilibrados. ¡Volveremos en familia!\"",
+    rev5_date: "París · hace 1 semana",
+    rev6_text: "\"¡Gran descubrimiento! Ambiente cálido, personal sonriente y atento. El tiramisú de Biscoff era excepcional. Una dirección a guardar entre sus favoritos.\"",
+    rev6_date: "Île-de-France · hace 5 días",
+    contact_label: "Encuéntrenos",
+    contact_title: "Contacto &<br>Información",
+    contact_addr_label: "Dirección",
+    contact_phone_label: "Teléfono",
+    contact_hours_label: "Horario de apertura",
+    day_mon: "Lunes", day_tue: "Martes", day_wed: "Miércoles", day_thu: "Jueves",
+    day_fri: "Viernes", day_sat: "Sábado", day_sun: "Domingo",
+    btn_call: "Llamar",
+    btn_reserve: "Reservar",
+    btn_map: "Cómo llegar",
+    footer_desc: "Un bistrot parisino tradicional donde la cocina francesa se expresa con generosidad y autenticidad, en un ambiente cálido y acogedor desde 2010.",
+    footer_nav: "Navegación",
+    footer_contact: "Contacto",
+    footer_open: "Abierto 7 días · desde las 11:00",
+    footer_reviews: "1.700+ reseñas Google",
+    footer_copy: "© 2025 Restaurant Bistrot Le Dôme París 15 · Todos los derechos reservados",
+    d_hareng: "Arenque sobre charlotte de patatas",
+    d_tomozz: "Tomate y mozzarella, salsa casera",
+    d_sardines: "Ensalada fresca con sardinas marinadas",
+    d_oeuf: "Huevos duros, mayonesa casera",
+    d_escargot: "Mantequilla de hierbas · 6 o 12 piezas",
+    d_artichaut: "Corazones de alcachofa, vinagreta casera",
+    d_burrata: "Burrata cremosa, tomatitos cherry asados",
+    d_boeuf: "Nuestra especialidad · estofado lento en vino tinto",
+    d_canard: "Patatas sarladaises, jugo de pato",
+    d_entrecote: "Ternera francesa, salsa a elegir",
+    d_tartare: "Carne picada, patatas fritas caseras, ensalada",
+    d_dorade: "Arroz, judías verdes, mantequilla de limón",
+    d_saumon: "Arroz, judías verdes, salsa de nata",
+    d_bar: "Arroz, judías verdes, ensalada",
+    d_barroyal: "Lubina entera, patatas fritas caseras, ensalada",
+    d_joue: "Estofado lentamente, patatas fritas caseras",
+    d_boucher: "Pieza del día, patatas fritas, ensalada",
+    d_cheval: "Hamburguesa de ternera, huevo frito, patatas fritas",
+    d_penne: "Pasta fresca, salmón, nata",
+    d_andouil: "Patatas fritas caseras, ensalada verde",
+    d_caesar: "Pollo empanado, parmesano, picatostes, salsa césar",
+    d_nicoise: "Atún, anchoas, aceitunas, arroz, judías verdes",
+    d_pecheur: "Salmón ahumado, gambas, tomates",
+    d_auvergne: "Queso Cantal, jamón, tomates, patatas",
+    d_bchef: "150g ternera, patatas fritas, ensalada · La mejor hamburguesa del barrio",
+    d_bdome: "Doble 150g ternera, huevos, patatas fritas · Nuestra especialidad",
+    d_bchick: "Pollo empanado crujiente, salsa cheddar, patatas fritas",
+    d_bvalais: "150g ternera, queso raclette suizo, patatas fritas",
+    d_bbleu: "150g ternera, roquefort fundido, patatas fritas",
+    d_tira: "Tiramisú casero con galleta Biscoff",
+    d_panna: "Casero, coulis de frutos rojos",
+    d_choc: "Casero, chocolate negro intenso",
+    d_tarte: "Casero · según temporada",
+    d_cafe: "Expreso acompañado de 3 mini-postres",
+    d_fromage: "Selección de quesos curados, pan tostado",
+    d_cock1: "Mojito, Caipirinha, Piña Colada, Spritz, Gin Tonic",
+    d_cock2: "Espresso Martini, Moscow Mule, Pornstar Martini",
+    d_noalc: "Virgin Mojito, Virgin Colada",
+    d_wineglass: "Tinto, Blanco, Rosado · selección del momento",
+    d_winebottle: "Côte du Rhône, Chardonnay, Sancerre…",
+    d_champ: "Botella 75cl · para celebrar",
+    d_beer: "Grimbergen, Chouffe, IPA · 25cl o 50cl",
+    d_kir: "Grosella, Mora o Melocotón · Kir Real con Champán",
+  },
+  de: {
+    logo_name: "Bistrot Restaurant",
+    logo_sub: "Le Dôme · Paris 15",
+    nav_about: "Unsere Geschichte",
+    nav_menu: "Speisekarte",
+    nav_gallery: "Galerie",
+    nav_reviews: "Bewertungen",
+    nav_contact: "Kontakt",
+    nav_reserve: "Reservieren",
+    hero_eyebrow: "Paris 15 · Seit 2010 · 4.8★ bei Google",
+    hero_title: "Erleben Sie <em>Authentisches</em><br>Pariser Bistro-Erlebnis",
+    hero_sub: "Authentische französische Küche · Warme Atmosphäre · Familiärer Service",
+    hero_cta1: "✦ Tisch Reservieren",
+    hero_cta2: "Speisekarte ansehen",
+    scroll_down: "Entdecken",
+    info_rating: "Bewertung",
+    info_address: "Adresse",
+    info_hours: "Öffnungszeiten",
+    info_hours_val: "Täglich geöffnet · ab 11:00 Uhr",
+    info_price: "Durchschnittspreis",
+    info_reviews: "Gästebewertungen",
+    info_reviews_val: "1.700+ verifizierte Bewertungen",
+    about_label: "Unsere Geschichte",
+    about_title: "Ein Bistro im Herzen<br>des 15. Arrondissements",
+    about_body1: "Im Le Dôme Paris 15 pflegen wir die große Tradition der französischen Küche mit Aufrichtigkeit und Leidenschaft. Jedes Gericht wird mit sorgfältig ausgewählten frischen Zutaten, ausgewogenen Aromen und der ganzen Liebe zum Handwerk zubereitet.",
+    about_body2: "Nahe der Porte de Versailles heißen wir Familien, Freunde und Reisende in einem warmen und gemütlichen Ambiente willkommen. Unser aufmerksames Team sorgt dafür, dass jeder Besuch ein unvergessliches Erlebnis wird.",
+    feat1_title: "Authentische Küche",
+    feat1_desc: "Traditionelle französische Rezepte",
+    feat2_title: "Familiärer Empfang",
+    feat2_desc: "Herzlicher und aufmerksamer Service",
+    feat3_title: "Frische Zutaten",
+    feat3_desc: "Sorgfältige Auswahl der Produkte",
+    feat4_title: "Paris 15",
+    feat4_desc: "In der Nähe der Porte de Versailles",
+    menu_label: "Unsere Speisekarte",
+    menu_title: "Eine Französische Karte<br>Großzügig & Aufrichtig",
+    tab_starters: "Vorspeisen",
+    tab_mains: "Hauptgerichte",
+    tab_salads: "Salate",
+    tab_burgers: "Burger",
+    tab_desserts: "Desserts",
+    tab_drinks: "Getränke",
+    menu_note: "✦ Signature-Gerichte · Alle Preise inkl. MwSt. · Im Restaurant, zum Mitnehmen & Lieferung verfügbar",
+    res_label: "Reservierung",
+    res_title: "Ihren Tisch Reservieren",
+    res_body: "Besuchen Sie uns für eine unvergessliche Mahlzeit in der authentischen Atmosphäre des Le Dôme. Schnelle und einfache Reservierung in wenigen Sekunden.",
+    trust1: "Sofortige Bestätigung",
+    trust2: "Keine Verpflichtung",
+    trust3: "Zahlung vor Ort",
+    res_btn: "Online Reservieren",
+    res_sub: "Schnell & einfach · Bestätigung in Sekunden",
+    res_or: "Oder rufen Sie uns direkt an: ",
+    gallery_label: "Galerie",
+    gallery_title: "Die Atmosphäre des Dôme",
+    gallery_food: "Küche",
+    gallery_interior: "Interieur",
+    gallery_drinks: "Getränke",
+    gallery_table: "Der Tisch",
+    gallery_grill: "Gerichte",
+    gallery_dessert: "Desserts",
+    rev_label: "Erfahrungsberichte",
+    rev_title: "Was Unsere Gäste Sagen",
+    rev_count: "Basierend auf 1.700+ Google-Bewertungen",
+    rev1_text: "\"Ein absolut charmantes Erlebnis. Das Bœuf Bourguignon war von unvergleichlichem Reichtum, und der Service ließ uns wie zuhause fühlen.\"",
+    rev1_date: "Paris · vor 2 Wochen",
+    rev2_text: "\"Authentisch, großzügig, köstlich. Die Schnecken in Kräuterbutter waren perfekt. Das warme Bistro-Ambiente hat uns ins echte Paris versetzt.\"",
+    rev2_date: "Paris 15 · vor 1 Monat",
+    rev3_text: "\"Der beste Burger, den ich in der Gegend gegessen habe, ohne Übertreibung. Liebenswürdiges Personal und hochwertige Bewirtung.\"",
+    rev3_date: "Besucher · vor 3 Wochen",
+    rev4_text: "\"Eine wunderbare Entdeckung nahe der Porte de Versailles. Das Confit de Canard war perfekt knusprig und der Service unglaublich herzlich.\"",
+    rev4_date: "London · vor 2 Wochen",
+    rev5_text: "\"Die Gerichte waren großzügig und schmackhaft. Das Pfeffersteaks war perfekt gegart. Sorgfältige Küche, gut ausgewogene Aromen.\"",
+    rev5_date: "Paris · vor 1 Woche",
+    rev6_text: "\"Eine tolle Entdeckung! Warmes Ambiente, lächelndes und aufmerksames Personal. Das Biscoff-Tiramisu war außergewöhnlich.\"",
+    rev6_date: "Île-de-France · vor 5 Tagen",
+    contact_label: "Finden Sie Uns",
+    contact_title: "Kontakt &<br>Informationen",
+    contact_addr_label: "Adresse",
+    contact_phone_label: "Telefon",
+    contact_hours_label: "Öffnungszeiten",
+    day_mon: "Montag", day_tue: "Dienstag", day_wed: "Mittwoch", day_thu: "Donnerstag",
+    day_fri: "Freitag", day_sat: "Samstag", day_sun: "Sonntag",
+    btn_call: "Anrufen",
+    btn_reserve: "Reservieren",
+    btn_map: "Route",
+    footer_desc: "Ein traditionelles Pariser Bistro, in dem die französische Küche seit 2010 mit Großzügigkeit und Authentizität in warmem und geselligem Ambiente serviert wird.",
+    footer_nav: "Navigation",
+    footer_contact: "Kontakt",
+    footer_open: "Täglich geöffnet · ab 11:00 Uhr",
+    footer_reviews: "1.700+ Google-Bewertungen",
+    footer_copy: "© 2025 Restaurant Bistrot Le Dôme Paris 15 · Alle Rechte vorbehalten",
+    d_hareng: "Heringsfilet auf Kartoffel-Charlotte",
+    d_tomozz: "Tomate und Mozzarella, Haussoße",
+    d_sardines: "Frischer Salat mit marinierten Sardinen",
+    d_oeuf: "Hartgekochte Eier, Hausmayonnaise",
+    d_escargot: "Kräuterbutter · 6 oder 12 Stück",
+    d_artichaut: "Marinierte Artischockenherzen, Hausvinaigrette",
+    d_burrata: "Cremige Burrata, geröstete Kirschtomaten",
+    d_boeuf: "Unsere Spezialität · langsam in Rotwein geschmort",
+    d_canard: "Sarladaise-Kartoffeln, Entenjus",
+    d_entrecote: "Französisches Rindfleisch, Sauce nach Wahl",
+    d_tartare: "Gehacktes Rindfleisch, Hausfritten, Salat",
+    d_dorade: "Reis, grüne Bohnen, Zitronenbutter",
+    d_saumon: "Reis, grüne Bohnen, Sahnesauce",
+    d_bar: "Reis, grüne Bohnen, Salat",
+    d_barroyal: "Ganzer Wolfsbarsch, Hausfritten, Salat",
+    d_joue: "Langsam geschmort, Hausfritten",
+    d_boucher: "Tagesstück, Hausfritten, Salat",
+    d_cheval: "Rinderhacksteak, Spiegelei, Fritten",
+    d_penne: "Frische Pasta, Lachs, Sahne",
+    d_andouil: "Hausfritten, grüner Salat",
+    d_caesar: "Paniertes Hähnchen, Parmesan, Croutons, Caesar-Dressing",
+    d_nicoise: "Thunfisch, Anchovis, Oliven, Reis, grüne Bohnen",
+    d_pecheur: "Räucherlachs, Garnelen, Tomaten",
+    d_auvergne: "Cantal-Käse, Schinken, Tomaten, Kartoffeln",
+    d_bchef: "150g Rindfleisch, Fritten, Salat · Bester Burger der Gegend",
+    d_bdome: "Doppelt 150g Rindfleisch, Eier, Fritten · Unsere Spezialität",
+    d_bchick: "Knuspriges paniertes Hähnchen, Cheddar-Sauce, Fritten",
+    d_bvalais: "150g Rindfleisch, Schweizer Raclette-Käse, Fritten",
+    d_bbleu: "150g Rindfleisch, geschmolzener Roquefort, Fritten",
+    d_tira: "Hausgemachtes Tiramisu mit Biscoff-Keksen",
+    d_panna: "Hausgemacht, Waldbeercoulis",
+    d_choc: "Hausgemacht, intensiv dunkle Schokolade",
+    d_tarte: "Hausgemacht · je nach Saison",
+    d_cafe: "Espresso mit 3 Mini-Desserts",
+    d_fromage: "Auswahl an gereiften Käsesorten, geröstetes Brot",
+    d_cock1: "Mojito, Caipirinha, Piña Colada, Spritz, Gin Tonic",
+    d_cock2: "Espresso Martini, Moscow Mule, Pornstar Martini",
+    d_noalc: "Virgin Mojito, Virgin Colada",
+    d_wineglass: "Rot, Weiß, Rosé · Auswahl des Moments",
+    d_winebottle: "Côte du Rhône, Chardonnay, Sancerre…",
+    d_champ: "75cl Flasche · zum Feiern",
+    d_beer: "Grimbergen, Chouffe, IPA · 25cl oder 50cl",
+    d_kir: "Johannisbeere, Brombeere oder Pfirsich · Kir Royal mit Champagner",
+  },
+  it: {
+    logo_name: "Bistrot Restaurant",
+    logo_sub: "Le Dôme · Parigi 15",
+    nav_about: "La Nostra Storia",
+    nav_menu: "Menu",
+    nav_gallery: "Galleria",
+    nav_reviews: "Recensioni",
+    nav_contact: "Contatti",
+    nav_reserve: "Prenotare",
+    hero_eyebrow: "Parigi 15 · Dal 2010 · 4.8★ su Google",
+    hero_title: "Vivete <em>l'Autentica</em><br>Esperienza del Bistrot Parigino",
+    hero_sub: "Cucina francese autentica · Atmosfera calda · Servizio familiare",
+    hero_cta1: "✦ Prenotare un Tavolo",
+    hero_cta2: "Vedere il Menu",
+    scroll_down: "Scoprire",
+    info_rating: "Valutazione",
+    info_address: "Indirizzo",
+    info_hours: "Orari",
+    info_hours_val: "Aperto ogni giorno · dalle 11:00",
+    info_price: "Prezzo medio",
+    info_reviews: "Recensioni clienti",
+    info_reviews_val: "1.700+ recensioni verificate",
+    about_label: "La Nostra Storia",
+    about_title: "Un Bistrot nel Cuore<br>del 15° Arrondissement",
+    about_body1: "Al Dôme Parigi 15, perpetuiamo la grande tradizione della cucina francese con sincerità e passione. Ogni piatto è preparato con ingredienti freschi accuratamente selezionati, sapori attentamente equilibrati e tutto l'amore del mestiere.",
+    about_body2: "Situati vicino a Porte de Versailles, accogliamo famiglie, amici e viaggiatori in un ambiente caldo e conviviale. Il nostro team attento garantisce che ogni visita sia un'esperienza memorabile.",
+    feat1_title: "Cucina Autentica",
+    feat1_desc: "Ricette tradizionali francesi",
+    feat2_title: "Accoglienza Familiare",
+    feat2_desc: "Servizio caldo e premuroso",
+    feat3_title: "Prodotti Freschi",
+    feat3_desc: "Rigorosa selezione degli ingredienti",
+    feat4_title: "Parigi 15",
+    feat4_desc: "Vicino a Porte de Versailles",
+    menu_label: "Il Nostro Menu",
+    menu_title: "Un Menu Francese<br>Generoso & Sincero",
+    tab_starters: "Antipasti",
+    tab_mains: "Piatti Principali",
+    tab_salads: "Insalate",
+    tab_burgers: "Burger",
+    tab_desserts: "Dessert",
+    tab_drinks: "Bevande",
+    menu_note: "✦ Piatti firma · Prezzi IVA inclusa · Servizio in sala, da asporto e consegna disponibili",
+    res_label: "Prenotazione",
+    res_title: "Prenotate il Vostro Tavolo",
+    res_body: "Unitevi a noi per un pasto indimenticabile nell'autentica atmosfera del Le Dôme. Prenotazione rapida e semplice in pochi secondi.",
+    trust1: "Conferma immediata",
+    trust2: "Senza impegno",
+    trust3: "Pagamento sul posto",
+    res_btn: "Prenota Online",
+    res_sub: "Rapido e semplice · Conferma in pochi secondi",
+    res_or: "O chiamateci direttamente: ",
+    gallery_label: "Galleria",
+    gallery_title: "L'Atmosfera del Dôme",
+    gallery_food: "Cucina",
+    gallery_interior: "Interno",
+    gallery_drinks: "Bevande",
+    gallery_table: "Il Tavolo",
+    gallery_grill: "Piatti",
+    gallery_dessert: "Dessert",
+    rev_label: "Testimonianze",
+    rev_title: "Cosa Dicono i Nostri Clienti",
+    rev_count: "Basato su 1.700+ recensioni Google",
+    rev1_text: "\"Un'esperienza assolutamente incantevole. Il bœuf bourguignon era di una ricchezza incomparabile, e il servizio ci ha fatto sentire come a casa.\"",
+    rev1_date: "Parigi · 2 settimane fa",
+    rev2_text: "\"Autentico, generoso, delizioso. Le lumache al burro alle erbe erano perfette. L'atmosfera calda del bistrot ci ha trasportati nella vera Parigi.\"",
+    rev2_date: "Parigi 15 · 1 mese fa",
+    rev3_text: "\"Il miglior hamburger che ho mangiato nel quartiere, senza esagerare. Personale adorabile e accoglienza di qualità.\"",
+    rev3_date: "Visitatore · 3 settimane fa",
+    rev4_text: "\"Una meravigliosa scoperta vicino a Porte de Versailles. Il confit de canard era perfettamente croccante e il servizio incredibilmente caldo.\"",
+    rev4_date: "Londra · 2 settimane fa",
+    rev5_text: "\"I piatti erano generosi e saporiti. L'entrecôte al pepe era perfettamente cotta. Cucina curata, sapori ben equilibrati. Torneremo in famiglia!\"",
+    rev5_date: "Parigi · 1 settimana fa",
+    rev6_text: "\"Una bella scoperta! Ambiente caldo, personale sorridente e premuroso. Il tiramisù Biscoff era eccezionale.\"",
+    rev6_date: "Île-de-France · 5 giorni fa",
+    contact_label: "Trovarci",
+    contact_title: "Contatti &<br>Informazioni",
+    contact_addr_label: "Indirizzo",
+    contact_phone_label: "Telefono",
+    contact_hours_label: "Orari di apertura",
+    day_mon: "Lunedì", day_tue: "Martedì", day_wed: "Mercoledì", day_thu: "Giovedì",
+    day_fri: "Venerdì", day_sat: "Sabato", day_sun: "Domenica",
+    btn_call: "Chiamare",
+    btn_reserve: "Prenotare",
+    btn_map: "Indicazioni",
+    footer_desc: "Un bistrot parigino tradizionale dove la cucina francese si esprime con generosità e autenticità, in un'atmosfera calda e conviviale dal 2010.",
+    footer_nav: "Navigazione",
+    footer_contact: "Contatti",
+    footer_open: "Aperto 7 giorni · dalle 11:00",
+    footer_reviews: "1.700+ recensioni Google",
+    footer_copy: "© 2025 Restaurant Bistrot Le Dôme Parigi 15 · Tutti i diritti riservati",
+    d_hareng: "Filetto di aringa su charlotte di patate",
+    d_tomozz: "Pomodoro e mozzarella, salsa della casa",
+    d_sardines: "Insalata fresca con sardine marinate",
+    d_oeuf: "Uova sode, maionese della casa",
+    d_escargot: "Burro alle erbe · 6 o 12 pezzi",
+    d_artichaut: "Cuori di carciofo marinati, vinaigrette della casa",
+    d_burrata: "Burrata cremosa, pomodorini ciliegia arrostiti",
+    d_boeuf: "La nostra firma · stufato lentamente nel vino rosso",
+    d_canard: "Patate sarladaises, jus d'anatra",
+    d_entrecote: "Manzo francese, salsa a scelta",
+    d_tartare: "Carne macinata, patatine fritte della casa, insalata",
+    d_dorade: "Riso, fagiolini, burro al limone",
+    d_saumon: "Riso, fagiolini, salsa alla panna",
+    d_bar: "Riso, fagiolini, insalata",
+    d_barroyal: "Branzino intero, patatine fritte, insalata",
+    d_joue: "Brasato lentamente, patatine fritte della casa",
+    d_boucher: "Taglio del giorno, patatine fritte, insalata",
+    d_cheval: "Hamburger di manzo, uovo all'occhio di bue, patatine",
+    d_penne: "Pasta fresca, salmone, panna",
+    d_andouil: "Patatine fritte della casa, insalata verde",
+    d_caesar: "Pollo panato, parmigiano, crostini, salsa caesar",
+    d_nicoise: "Tonno, acciughe, olive, riso, fagiolini",
+    d_pecheur: "Salmone affumicato, gamberetti, pomodori",
+    d_auvergne: "Formaggio Cantal, prosciutto, pomodori, patate",
+    d_bchef: "150g manzo, patatine, insalata · Il miglior burger del quartiere",
+    d_bdome: "Doppio 150g manzo, uova, patatine · La nostra firma",
+    d_bchick: "Pollo panato croccante, salsa cheddar, patatine",
+    d_bvalais: "150g manzo, formaggio raclette svizzero, patatine",
+    d_bbleu: "150g manzo, roquefort fuso, patatine",
+    d_tira: "Tiramisù della casa con biscotto Biscoff",
+    d_panna: "Fatto in casa, coulis di frutti rossi",
+    d_choc: "Fatto in casa, cioccolato fondente intenso",
+    d_tarte: "Fatto in casa · secondo la stagione",
+    d_cafe: "Espresso con 3 mini-dessert",
+    d_fromage: "Selezione di formaggi stagionati, pane tostato",
+    d_cock1: "Mojito, Caipirinha, Piña Colada, Spritz, Gin Tonic",
+    d_cock2: "Espresso Martini, Moscow Mule, Pornstar Martini",
+    d_noalc: "Virgin Mojito, Virgin Colada",
+    d_wineglass: "Rosso, Bianco, Rosato · selezione del momento",
+    d_winebottle: "Côte du Rhône, Chardonnay, Sancerre…",
+    d_champ: "Bottiglia 75cl · per festeggiare",
+    d_beer: "Grimbergen, Chouffe, IPA · 25cl o 50cl",
+    d_kir: "Ribes nero, More o Pesca · Kir Royal con Champagne",
+  },
+  ar: {
+    logo_name: "مطعم بيسترو",
+    logo_sub: "لو دوم · باريس 15",
+    nav_about: "قصتنا",
+    nav_menu: "القائمة",
+    nav_gallery: "معرض الصور",
+    nav_reviews: "آراء الزبائن",
+    nav_contact: "اتصل بنا",
+    nav_reserve: "حجز طاولة",
+    hero_eyebrow: "باريس 15 · منذ 2010 · 4.8★ على جوجل",
+    hero_title: "اكتشف <em>تجربة</em><br>البيسترو الباريسي الأصيل",
+    hero_sub: "مطبخ فرنسي أصيل · أجواء دافئة · خدمة عائلية",
+    hero_cta1: "✦ حجز طاولة",
+    hero_cta2: "عرض القائمة",
+    scroll_down: "اكتشف",
+    info_rating: "التقييم",
+    info_address: "العنوان",
+    info_hours: "أوقات العمل",
+    info_hours_val: "مفتوح يومياً · من 11:00",
+    info_price: "متوسط السعر",
+    info_reviews: "آراء الزبائن",
+    info_reviews_val: "+1,700 تقييم موثق",
+    about_label: "قصتنا",
+    about_title: "بيسترو في قلب<br>الحي 15 بباريس",
+    about_body1: "في لو دوم باريس 15، نحافظ على التقاليد العريقة للمطبخ الفرنسي بإخلاص وشغف. كل طبق يُحضَّر بمكونات طازجة مختارة بعناية، ونكهات متوازنة بدقة، وكل حب الصنعة.",
+    about_body2: "بالقرب من بورت دو فرساي، نرحب بالعائلات والأصدقاء والمسافرين في أجواء دافئة ومرحة. يحرص فريقنا الودود على أن تكون كل زيارة تجربة لا تُنسى.",
+    feat1_title: "مطبخ أصيل",
+    feat1_desc: "وصفات فرنسية تقليدية",
+    feat2_title: "استقبال عائلي",
+    feat2_desc: "خدمة دافئة ومهتمة",
+    feat3_title: "منتجات طازجة",
+    feat3_desc: "اختيار صارم للمكونات",
+    feat4_title: "باريس 15",
+    feat4_desc: "بالقرب من بورت دو فرساي",
+    menu_label: "قائمتنا",
+    menu_title: "قائمة فرنسية<br>كريمة وصادقة",
+    tab_starters: "المقبلات",
+    tab_mains: "الأطباق الرئيسية",
+    tab_salads: "السلطات",
+    tab_burgers: "البرغر",
+    tab_desserts: "الحلويات",
+    tab_drinks: "المشروبات",
+    menu_note: "✦ أطباق مميزة · الأسعار شاملة الضريبة · خدمة داخل المطعم، للاستلام والتوصيل",
+    res_label: "الحجز",
+    res_title: "احجز طاولتك",
+    res_body: "انضم إلينا لتناول وجبة لا تُنسى في الأجواء الأصيلة لبيسترو لو دوم. حجز سريع وسهل في ثوانٍ معدودة.",
+    trust1: "تأكيد فوري",
+    trust2: "بدون التزام",
+    trust3: "الدفع عند الحضور",
+    res_btn: "احجز عبر الإنترنت",
+    res_sub: "سريع وبسيط · تأكيد في ثوانٍ",
+    res_or: "أو اتصل بنا مباشرةً: ",
+    gallery_label: "معرض الصور",
+    gallery_title: "أجواء لو دوم",
+    gallery_food: "المطبخ",
+    gallery_interior: "الديكور الداخلي",
+    gallery_drinks: "المشروبات",
+    gallery_table: "الطاولة",
+    gallery_grill: "الأطباق",
+    gallery_dessert: "الحلويات",
+    rev_label: "شهادات الزبائن",
+    rev_title: "ماذا يقول زبائننا",
+    rev_count: "بناءً على +1,700 تقييم على جوجل",
+    rev1_text: "\"تجربة ساحرة حقاً. كان بوف بورغينيون غنياً لا مثيل له، وجعلنا الخدمة نشعر وكأننا في بيتنا.\"",
+    rev1_date: "باريس · منذ أسبوعين",
+    rev2_text: "\"أصيل، كريم، لذيذ. كانت الحلزونات بالزبدة العشبية مثالية. نقلنا الجو الدافئ للبيسترو إلى باريس الحقيقية.\"",
+    rev2_date: "باريس 15 · منذ شهر",
+    rev3_text: "\"أفضل برغر أكلته في الحي، بلا مبالغة. موظفون رائعون وترحيب راقٍ. لا تفوتوه إن كنتم في الحي 15.\"",
+    rev3_date: "زائر · منذ 3 أسابيع",
+    rev4_text: "\"اكتشاف رائع قرب بورت دو فرساي. كان كونفي دو كانار مقرمشاً بشكل مثالي والخدمة دافئة بشكل لا يصدق.\"",
+    rev4_date: "لندن · منذ أسبوعين",
+    rev5_text: "\"الأطباق كانت كريمة وشهية. اللحم بصلصة الفلفل كان مطهياً بإتقان. مطبخ مدروس ونكهات متوازنة. سنعود مع العائلة!\"",
+    rev5_date: "باريس · منذ أسبوع",
+    rev6_text: "\"اكتشاف رائع! أجواء دافئة، موظفون مبتسمون ومهتمون. تيراميسو البيسكوف كان استثنائياً.\"",
+    rev6_date: "إيل دو فرانس · منذ 5 أيام",
+    contact_label: "كيفية الوصول",
+    contact_title: "اتصل بنا &<br>المعلومات",
+    contact_addr_label: "العنوان",
+    contact_phone_label: "الهاتف",
+    contact_hours_label: "أوقات العمل",
+    day_mon: "الإثنين", day_tue: "الثلاثاء", day_wed: "الأربعاء", day_thu: "الخميس",
+    day_fri: "الجمعة", day_sat: "السبت", day_sun: "الأحد",
+    btn_call: "اتصال",
+    btn_reserve: "حجز",
+    btn_map: "الاتجاهات",
+    footer_desc: "بيسترو باريسي تقليدي تتجلى فيه المطبخ الفرنسي بسخاء وأصالة، في أجواء دافئة ومرحة منذ عام 2010.",
+    footer_nav: "روابط التنقل",
+    footer_contact: "اتصل بنا",
+    footer_open: "مفتوح 7 أيام · من 11:00",
+    footer_reviews: "+1,700 تقييم على جوجل",
+    footer_copy: "© 2025 مطعم بيسترو لو دوم باريس 15 · جميع الحقوق محفوظة",
+    d_hareng: "شرائح رنجة على شارلوت البطاطس",
+    d_tomozz: "طماطم وجبنة موزاريلا، صلصة البيت",
+    d_sardines: "سلطة طازجة مع سردين مُتبّل",
+    d_oeuf: "بيض مسلوق، مايونيز البيت",
+    d_escargot: "زبدة الأعشاب · 6 أو 12 حبة",
+    d_artichaut: "قلوب الخرشوف المُتبّلة، صلصة الخل البيتية",
+    d_burrata: "جبنة بوراتا كريمية، طماطم كرزية مشوية",
+    d_boeuf: "طبقنا المميز · يُطهى ببطء في النبيذ الأحمر",
+    d_canard: "بطاطس سارلاداز، مرق البط",
+    d_entrecote: "لحم بقري فرنسي، صلصة من اختيارك",
+    d_tartare: "لحم بقري مفروم، بطاطس مقلية، سلطة",
+    d_dorade: "أرز، فاصولياء خضراء، زبدة الليمون",
+    d_saumon: "أرز، فاصولياء خضراء، صلصة الكريمة",
+    d_bar: "أرز، فاصولياء خضراء، سلطة",
+    d_barroyal: "سمك قاروص كامل، بطاطس مقلية، سلطة",
+    d_joue: "يُطهى ببطء، بطاطس مقلية",
+    d_boucher: "قطعة اليوم، بطاطس مقلية، سلطة",
+    d_cheval: "شريحة لحم بقري، بيضة مقلية، بطاطس",
+    d_penne: "معكرونة طازجة، سلمون، كريمة",
+    d_andouil: "بطاطس مقلية، سلطة خضراء",
+    d_caesar: "دجاج مقلي، بارميزان، خبز محمص، صلصة سيزر",
+    d_nicoise: "تونة، أنشوجة، زيتون، أرز، فاصولياء خضراء",
+    d_pecheur: "سلمون مدخن، جمبري، طماطم",
+    d_auvergne: "جبنة كانتال، لحم مدخن، طماطم، بطاطس",
+    d_bchef: "150 غ لحم بقري، بطاطس، سلطة · أفضل برغر في الحي",
+    d_bdome: "ضعف 150 غ لحم، بيض، بطاطس · طبقنا المميز",
+    d_bchick: "دجاج مقلي مقرمش، صلصة شيدر، بطاطس",
+    d_bvalais: "150 غ لحم بقري، جبنة راكليت سويسرية، بطاطس",
+    d_bbleu: "150 غ لحم بقري، روكفور ذائب، بطاطس",
+    d_tira: "تيراميسو بيتي مع بسكويت بيسكوف",
+    d_panna: "محلي الصنع، كولي فواكه حمراء",
+    d_choc: "محلي الصنع، شوكولاتة داكنة مكثفة",
+    d_tarte: "محلي الصنع · حسب الموسم",
+    d_cafe: "إسبريسو مع 3 حلويات صغيرة",
+    d_fromage: "تشكيلة جبن معتق، خبز محمص",
+    d_cock1: "موخيتو، كايبيرينيا، بينا كولادا، سبريتز، جن تونيك",
+    d_cock2: "إسبريسو مارتيني، موسكو ميول، بورن ستار مارتيني",
+    d_noalc: "موخيتو بدون كحول، بينا كولادا بدون كحول",
+    d_wineglass: "أحمر، أبيض، روزيه · اختيار اللحظة",
+    d_winebottle: "كوت دو رون، شاردونيه، سانسير…",
+    d_champ: "زجاجة 75 سل · للاحتفال",
+    d_beer: "غريمبرجن، شوف، IPA · 25 سل أو 50 سل",
+    d_kir: "كشمش أسود، توت أو خوخ · كير رويال مع شامبانيا",
+  }
+};
+
+// ─── STATE ───
+let currentLang = 'fr';
+const langMeta = {
+  fr: { flag: '🇫🇷', code: 'FR', dir: 'ltr' },
+  en: { flag: '🇬🇧', code: 'EN', dir: 'ltr' },
+  es: { flag: '🇪🇸', code: 'ES', dir: 'ltr' },
+  de: { flag: '🇩🇪', code: 'DE', dir: 'ltr' },
+  it: { flag: '🇮🇹', code: 'IT', dir: 'ltr' },
+  ar: { flag: '🇸🇦', code: 'AR', dir: 'rtl' }
+};
+
+function setLang(lang) {
+  currentLang = lang;
+  const meta = langMeta[lang];
+  document.documentElement.lang = lang;
+  document.documentElement.dir = meta.dir;
+  
+  // Update all flags and codes
+  ['currentFlag','currentFlagM'].forEach(id => {
+    const el = document.getElementById(id);
+    if(el) el.textContent = meta.flag;
+  });
+  ['currentLangCode','currentLangCodeM'].forEach(id => {
+    const el = document.getElementById(id);
+    if(el) el.textContent = meta.code;
+  });
+  
+  // Close dropdowns
+  document.querySelectorAll('.lang-dropdown').forEach(d => d.classList.remove('open'));
+  
+  // Highlight active
+  document.querySelectorAll('.lang-option').forEach(opt => {
+    opt.classList.toggle('active', opt.getAttribute('onclick') === `setLang('${lang}')`);
+  });
+  
+  // Apply translations
+  const t = translations[lang] || translations.fr;
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    if (t[key] !== undefined) {
+      el.innerHTML = t[key];
+    }
+  });
+}
+
+function toggleLang() {
+  document.getElementById('langDropdown').classList.toggle('open');
+  document.getElementById('langDropdownMobile').classList.remove('open');
+}
+function toggleLangMobile() {
+  document.getElementById('langDropdownMobile').classList.toggle('open');
+  document.getElementById('langDropdown').classList.remove('open');
+}
+document.addEventListener('click', e => {
+  if (!e.target.closest('.lang-switcher')) {
+    document.querySelectorAll('.lang-dropdown').forEach(d => d.classList.remove('open'));
+  }
+});
+
+// ─── NAVBAR SCROLL ───
+window.addEventListener('scroll', () => {
+  document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 40);
+});
+
+// ─── HERO BG LOAD ───
+window.addEventListener('load', () => {
+  document.getElementById('heroBg').classList.add('loaded');
+});
+
+// ─── MENU TABS ───
+function switchTab(name) {
+  document.querySelectorAll('.menu-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.menu-tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('panel-' + name).classList.add('active');
+  event.target.classList.add('active');
+}
+
+// ─── LIGHTBOX ───
+function openLightbox(src) {
+  document.getElementById('lightboxImg').src = src;
+  document.getElementById('lightbox').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeLightbox() {
+  document.getElementById('lightbox').classList.remove('open');
+  document.body.style.overflow = '';
+}
+document.getElementById('lightbox').addEventListener('click', e => {
+  if (e.target === e.currentTarget) closeLightbox();
+});
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
+
+// ─── HAMBURGER ───
+function toggleMenu() {
+  const nav = document.getElementById('navMenu');
+  const ham = document.getElementById('hamburger');
+  const langMobileEl = document.getElementById('langSwitcherMobile');
+  nav.classList.toggle('open');
+  ham.classList.toggle('open');
+  langMobileEl.style.display = nav.classList.contains('open') ? 'block' : 'none';
+}
+
+// ─── MOBILE LANG SWITCHER ───
+const mq = window.matchMedia('(max-width: 900px)');
+function handleMQ(e) {
+  const langMobileEl = document.getElementById('langSwitcherMobile');
+  if (langMobileEl) langMobileEl.style.display = e.matches ? 'block' : 'none';
+}
+mq.addEventListener('change', handleMQ);
+handleMQ(mq);
+
+// ─── INTERSECTION OBSERVER ───
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+document.querySelectorAll('.reveal, .info-item').forEach(el => observer.observe(el));
+
+// ─── SMOOTH LINK SCROLL ───
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const id = a.getAttribute('href').slice(1);
+    const el = document.getElementById(id);
+    if (el) {
+      e.preventDefault();
+      el.scrollIntoView({ behavior: 'smooth' });
+      // Close mobile menu
+      document.getElementById('navMenu').classList.remove('open');
+      document.getElementById('hamburger').classList.remove('open');
+    }
+  });
+});
+</script>
+</body>
+</html>
