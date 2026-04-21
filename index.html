@@ -74,7 +74,7 @@
     <!-- Navbar -->
     <nav class="fixed top-0 w-full z-50 bg-[#fcf9f3]/90 backdrop-blur-xl transition-colors duration-500 shadow-sm">
         <div class="flex justify-between items-center px-6 md:px-12 py-6 w-full max-w-screen-2xl mx-auto">
-            <a href="#" class="text-2xl font-serif italic text-primary tracking-tighter" data-i18n="nav_title">Le Dôme Paris 15</a>
+            <a href="#" class="text-xl md:text-2xl font-serif italic text-primary tracking-tighter" data-i18n="nav_title">Le Dôme Paris 15</a>
             
             <div class="hidden md:flex gap-12 items-center">
                 <a class="font-serif text-lg tracking-tight font-light text-on-surface-variant hover:text-secondary transition-colors" href="#about" data-i18n="nav_about">About</a>
@@ -82,7 +82,7 @@
                 <a class="font-serif text-lg tracking-tight font-light text-on-surface-variant hover:text-secondary transition-colors" href="#reservation" data-i18n="nav_reserve">Reserve</a>
             </div>
             
-            <div class="flex items-center gap-6">
+            <div class="flex items-center gap-4 md:gap-6">
                 <div class="relative lang-switcher">
                     <button class="material-symbols-outlined text-primary hover:scale-105 duration-300" onclick="document.getElementById('langDropdown').classList.toggle('open')">language</button>
                     <div id="langDropdown" class="lang-dropdown">
@@ -96,23 +96,35 @@
                 </div>
                 
                 <a href="https://wiicmenu-qrcode.com/app/reservation_client.php?resto=2776" class="hidden md:block bg-primary text-on-primary px-6 py-3 rounded-md font-label text-sm uppercase tracking-widest hover:scale-105 transition-transform duration-300" data-i18n="nav_btn">Reserve a Table</a>
+                
+                <!-- Mobile Menu Button -->
+                <button class="md:hidden material-symbols-outlined text-primary" onclick="toggleMobileMenu()">menu</button>
             </div>
+        </div>
+        
+        <!-- Mobile Menu Overlay -->
+        <div id="mobileMenu" class="fixed inset-0 bg-surface z-50 flex flex-col items-center justify-center gap-8 opacity-0 pointer-events-none transition-all duration-300">
+            <button class="absolute top-6 right-6 material-symbols-outlined text-primary text-3xl" onclick="toggleMobileMenu()">close</button>
+            <a class="font-serif text-3xl text-primary" href="#about" onclick="toggleMobileMenu()" data-i18n="nav_about">About</a>
+            <a class="font-serif text-3xl text-primary" href="#menu" onclick="toggleMobileMenu()" data-i18n="nav_menu">Menu</a>
+            <a class="font-serif text-3xl text-primary" href="#reservation" onclick="toggleMobileMenu()" data-i18n="nav_reserve">Reserve</a>
+            <a href="https://wiicmenu-qrcode.com/app/reservation_client.php?resto=2776" class="bg-primary text-on-primary px-8 py-4 rounded-md font-label text-sm uppercase tracking-widest" data-i18n="nav_btn">Reserve a Table</a>
         </div>
     </nav>
 
     <main>
         <!-- Home Section -->
         <div id="home" class="reveal">
-            <section class="relative min-h-[921px] flex items-center px-12 overflow-hidden">
+            <section class="relative min-h-screen md:min-h-[921px] flex items-center px-6 md:px-12 overflow-hidden">
                 <div class="absolute inset-0 z-0">
                     <img class="w-full h-full object-cover brightness-[0.85]" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBTzgyiNWuFyK2yznPQeLzaSFkvea8wrnovwyrneZbph06aBemjKb_EOrBh2HWxRPw-Ps3ZOxKvPAdNzx7QnznZNYwyNNPiZsRF3ab0t7itXFAfy5NjTmT4U9F0XNKPDq9iVUMaOV3BgS_wsCw_XppjKx_b16ZMlAHOBCNNowdQ2RBnOAx4Pl_WreJ_w0NRi7Jne9Jw1f7qlZdL0Ilmf1XQup6HeYdp-EsLMYyY9L2zBz5BDDYA-XBkZT8UN_lbnm1NhPVP1G4JFg"/>
                     <div class="absolute inset-0 bg-gradient-to-r from-background/60 to-transparent"></div>
                 </div>
                 <div class="relative z-10 max-w-3xl">
                     <span class="inline-block px-4 py-1 rounded-full bg-surface-container-highest text-secondary font-label text-xs tracking-widest uppercase mb-6" data-i18n="hero_est">Established 1984</span>
-                    <h1 class="text-7xl md:text-8xl font-serif text-primary leading-[0.9] tracking-tighter mb-8" data-i18n="hero_title">Experience <br/> <span class="italic text-secondary">Authentic</span> <br/> Parisian Bistro Dining</h1>
-                    <div class="flex items-center gap-6">
-                        <a href="https://wiicmenu-qrcode.com/app/reservation_client.php?resto=2776" class="bg-primary text-on-primary px-10 py-5 rounded-md font-label text-sm uppercase tracking-widest shadow-xl hover:bg-primary-container transition-colors duration-300" data-i18n="hero_btn1">Reserve a Table</a>
+                    <h1 class="text-5xl md:text-8xl font-serif text-primary leading-[1] md:leading-[0.9] tracking-tighter mb-8" data-i18n="hero_title">Experience <br/> <span class="italic text-secondary">Authentic</span> <br/> Parisian Bistro Dining</h1>
+                    <div class="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-6">
+                        <a href="https://wiicmenu-qrcode.com/app/reservation_client.php?resto=2776" class="w-full sm:w-auto text-center bg-primary text-on-primary px-10 py-5 rounded-md font-label text-sm uppercase tracking-widest shadow-xl hover:bg-primary-container transition-colors duration-300" data-i18n="hero_btn1">Reserve a Table</a>
                         <a href="#menu" class="text-primary font-serif italic text-xl border-b border-outline-variant hover:border-secondary transition-colors py-2" data-i18n="hero_btn2">View Menu</a>
                     </div>
                 </div>
@@ -568,6 +580,12 @@
             currentLang = lang;
             document.getElementById('langDropdown').classList.remove('open');
             applyTranslations();
+        }
+
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('opacity-0');
+            menu.classList.toggle('pointer-events-none');
         }
 
         document.addEventListener('DOMContentLoaded', () => {
