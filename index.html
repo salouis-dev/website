@@ -76,6 +76,7 @@
         <div class="flex justify-between items-center px-6 md:px-12 py-6 w-full max-w-screen-2xl mx-auto">
             <a href="#" class="text-xl md:text-2xl font-serif italic text-primary tracking-tighter" data-i18n="nav_title">Le Dôme Paris 15</a>
             
+            <!-- Desktop Nav -->
             <div class="hidden md:flex gap-12 items-center">
                 <a class="font-serif text-lg tracking-tight font-light text-on-surface-variant hover:text-secondary transition-colors" href="#about" data-i18n="nav_about">About</a>
                 <a class="font-serif text-lg tracking-tight font-light text-on-surface-variant hover:text-secondary transition-colors" href="#menu" data-i18n="nav_menu">Menu</a>
@@ -83,7 +84,8 @@
             </div>
             
             <div class="flex items-center gap-4 md:gap-6">
-                <div class="relative lang-switcher">
+                <!-- Desktop Lang Switcher -->
+                <div class="hidden md:block relative lang-switcher">
                     <button class="material-symbols-outlined text-primary hover:scale-105 duration-300" onclick="document.getElementById('langDropdown').classList.toggle('open')">language</button>
                     <div id="langDropdown" class="lang-dropdown">
                         <div class="lang-option" onclick="setLang('fr')"><span>🇫🇷</span> FR</div>
@@ -98,45 +100,61 @@
                 <a href="https://wiicmenu-qrcode.com/app/reservation_client.php?resto=2776" class="hidden md:block bg-primary text-on-primary px-6 py-3 rounded-md font-label text-sm uppercase tracking-widest hover:scale-105 transition-transform duration-300" data-i18n="nav_btn">Reserve a Table</a>
                 
                 <!-- Mobile Menu Button -->
-                <button class="md:hidden material-symbols-outlined text-primary" onclick="toggleMobileMenu()">menu</button>
+                <button class="md:hidden material-symbols-outlined text-primary text-3xl" onclick="toggleMobileMenu()">menu</button>
             </div>
         </div>
         
-        <!-- Mobile Menu Overlay -->
-        <div id="mobileMenu" class="fixed inset-0 bg-surface z-50 flex flex-col items-center justify-center gap-8 opacity-0 pointer-events-none transition-all duration-300">
-            <button class="absolute top-6 right-6 material-symbols-outlined text-primary text-3xl" onclick="toggleMobileMenu()">close</button>
-            <a class="font-serif text-3xl text-primary" href="#about" onclick="toggleMobileMenu()" data-i18n="nav_about">About</a>
-            <a class="font-serif text-3xl text-primary" href="#menu" onclick="toggleMobileMenu()" data-i18n="nav_menu">Menu</a>
-            <a class="font-serif text-3xl text-primary" href="#reservation" onclick="toggleMobileMenu()" data-i18n="nav_reserve">Reserve</a>
-            <a href="https://wiicmenu-qrcode.com/app/reservation_client.php?resto=2776" class="bg-primary text-on-primary px-8 py-4 rounded-md font-label text-sm uppercase tracking-widest" data-i18n="nav_btn">Reserve a Table</a>
+        <!-- Mobile Menu Overlay (Redesigned for Clarity) -->
+        <div id="mobileMenu" class="fixed inset-0 bg-primary z-[60] flex flex-col items-center justify-center gap-10 opacity-0 pointer-events-none transition-all duration-500 overflow-y-auto pt-20">
+            <button class="absolute top-6 right-6 material-symbols-outlined text-on-primary text-4xl" onclick="toggleMobileMenu()">close</button>
+            
+            <div class="flex flex-col items-center gap-6">
+                <a class="font-serif text-4xl text-on-primary hover:text-secondary-fixed transition-colors" href="#about" onclick="toggleMobileMenu()" data-i18n="nav_about">About</a>
+                <a class="font-serif text-4xl text-on-primary hover:text-secondary-fixed transition-colors" href="#menu" onclick="toggleMobileMenu()" data-i18n="nav_menu">Menu</a>
+                <a class="font-serif text-4xl text-on-primary hover:text-secondary-fixed transition-colors" href="#reservation" onclick="toggleMobileMenu()" data-i18n="nav_reserve">Reserve</a>
+            </div>
+
+            <div class="w-2/3 h-px bg-on-primary/10"></div>
+
+            <!-- Mobile Lang Selection -->
+            <div class="grid grid-cols-3 gap-4">
+                <button class="flex flex-col items-center gap-1 text-on-primary/70" onclick="setLang('fr'); toggleMobileMenu()"> <span class="text-2xl">🇫🇷</span> <span class="text-xs">FR</span> </button>
+                <button class="flex flex-col items-center gap-1 text-on-primary/70" onclick="setLang('en'); toggleMobileMenu()"> <span class="text-2xl">🇬🇧</span> <span class="text-xs">EN</span> </button>
+                <button class="flex flex-col items-center gap-1 text-on-primary/70" onclick="setLang('es'); toggleMobileMenu()"> <span class="text-2xl">🇪🇸</span> <span class="text-xs">ES</span> </button>
+                <button class="flex flex-col items-center gap-1 text-on-primary/70" onclick="setLang('de'); toggleMobileMenu()"> <span class="text-2xl">🇩🇪</span> <span class="text-xs">DE</span> </button>
+                <button class="flex flex-col items-center gap-1 text-on-primary/70" onclick="setLang('it'); toggleMobileMenu()"> <span class="text-2xl">🇮🇹</span> <span class="text-xs">IT</span> </button>
+                <button class="flex flex-col items-center gap-1 text-on-primary/70" onclick="setLang('ar'); toggleMobileMenu()"> <span class="text-2xl">🇸🇦</span> <span class="text-xs">AR</span> </button>
+            </div>
+
+            <a href="https://wiicmenu-qrcode.com/app/reservation_client.php?resto=2776" class="bg-secondary-fixed text-primary px-10 py-5 rounded-md font-label text-sm font-bold uppercase tracking-widest shadow-2xl" data-i18n="nav_btn">Reserve a Table</a>
         </div>
     </nav>
 
     <main>
         <!-- Home Section -->
         <div id="home" class="reveal">
-            <section class="relative min-h-screen md:min-h-[921px] flex items-center px-6 md:px-12 overflow-hidden">
+            <section class="relative h-screen flex items-center px-6 md:px-12 lg:px-24 overflow-hidden">
                 <div class="absolute inset-0 z-0">
-                    <img class="w-full h-full object-cover brightness-[0.85]" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBTzgyiNWuFyK2yznPQeLzaSFkvea8wrnovwyrneZbph06aBemjKb_EOrBh2HWxRPw-Ps3ZOxKvPAdNzx7QnznZNYwyNNPiZsRF3ab0t7itXFAfy5NjTmT4U9F0XNKPDq9iVUMaOV3BgS_wsCw_XppjKx_b16ZMlAHOBCNNowdQ2RBnOAx4Pl_WreJ_w0NRi7Jne9Jw1f7qlZdL0Ilmf1XQup6HeYdp-EsLMYyY9L2zBz5BDDYA-XBkZT8UN_lbnm1NhPVP1G4JFg"/>
-                    <div class="absolute inset-0 bg-gradient-to-r from-background/60 to-transparent"></div>
+                    <img class="w-full h-full object-cover brightness-[0.7] transform scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBTzgyiNWuFyK2yznPQeLzaSFkvea8wrnovwyrneZbph06aBemjKb_EOrBh2HWxRPw-Ps3ZOxKvPAdNzx7QnznZNYwyNNPiZsRF3ab0t7itXFAfy5NjTmT4U9F0XNKPDq9iVUMaOV3BgS_wsCw_XppjKx_b16ZMlAHOBCNNowdQ2RBnOAx4Pl_WreJ_w0NRi7Jne9Jw1f7qlZdL0Ilmf1XQup6HeYdp-EsLMYyY9L2zBz5BDDYA-XBkZT8UN_lbnm1NhPVP1G4JFg"/>
+                    <div class="absolute inset-0 bg-gradient-to-t from-primary/80 via-primary/20 to-transparent"></div>
                 </div>
-                <div class="relative z-10 max-w-3xl">
-                    <span class="inline-block px-4 py-1 rounded-full bg-surface-container-highest text-secondary font-label text-xs tracking-widest uppercase mb-6" data-i18n="hero_est">Established 1984</span>
-                    <h1 class="text-5xl md:text-8xl font-serif text-primary leading-[1] md:leading-[0.9] tracking-tighter mb-8" data-i18n="hero_title">Experience <br/> <span class="italic text-secondary">Authentic</span> <br/> Parisian Bistro Dining</h1>
-                    <div class="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-6">
-                        <a href="https://wiicmenu-qrcode.com/app/reservation_client.php?resto=2776" class="w-full sm:w-auto text-center bg-primary text-on-primary px-10 py-5 rounded-md font-label text-sm uppercase tracking-widest shadow-xl hover:bg-primary-container transition-colors duration-300" data-i18n="hero_btn1">Reserve a Table</a>
-                        <a href="#menu" class="text-primary font-serif italic text-xl border-b border-outline-variant hover:border-secondary transition-colors py-2" data-i18n="hero_btn2">View Menu</a>
+                <div class="relative z-10 max-w-4xl text-white">
+                    <span class="inline-block px-4 py-1 rounded-full bg-secondary-fixed text-primary font-label text-xs tracking-widest uppercase mb-8 shadow-lg" data-i18n="hero_est">Established 1984</span>
+                    <h1 class="text-6xl md:text-8xl lg:text-9xl font-serif leading-[1] tracking-tighter mb-10 drop-shadow-2xl" data-i18n="hero_title">Experience <br/> <span class="italic text-secondary-fixed">Authentic</span> <br/> Parisian Bistro Dining</h1>
+                    <div class="flex flex-col sm:flex-row items-start sm:items-center gap-6">
+                        <a href="https://wiicmenu-qrcode.com/app/reservation_client.php?resto=2776" class="w-full sm:w-auto text-center bg-secondary-fixed text-primary px-12 py-5 rounded-md font-label text-sm font-bold uppercase tracking-widest shadow-2xl hover:scale-105 transition-transform duration-300" data-i18n="hero_btn1">Reserve a Table</a>
+                        <a href="#menu" class="text-white font-serif italic text-2xl border-b border-white/30 hover:border-secondary-fixed transition-colors py-2" data-i18n="hero_btn2">View Menu</a>
                     </div>
                 </div>
             </section>
             
-            <section class="bg-surface-container-low py-12 px-12">
-                <div class="max-w-screen-xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12">
-                    <div class="flex items-center gap-4">
-                        <span class="material-symbols-outlined text-secondary text-3xl" style="font-variation-settings: 'FILL' 1;">star</span>
+            <section class="bg-surface-container-low py-16 px-6 md:px-12 lg:px-24">
+                <div class="max-w-screen-2xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12 lg:gap-24">
+                    <div class="flex items-center gap-6">
+                        <span class="material-symbols-outlined text-secondary text-4xl" style="font-variation-settings: 'FILL' 1;">star</span>
                         <div>
                             <p class="font-label text-xs uppercase tracking-widest text-outline" data-i18n="qi_1_title">Excellence</p>
-                            <p class="font-serif text-xl text-primary" data-i18n="qi_1_desc">4.8 Star Gastronomy</p>
+                            <p class="font-serif text-2xl text-primary" data-i18n="qi_1_desc">4.8 Star Gastronomy</p>
                         </div>
                     </div>
                     <div class="flex items-center gap-4">
@@ -159,8 +177,8 @@
 
         <!-- About Section -->
         <div id="about" class="reveal mt-20">
-            <section class="px-12 max-w-screen-2xl mx-auto mb-32">
-                <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+            <section class="px-6 md:px-12 lg:px-24 max-w-screen-2xl mx-auto mb-32">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-16 items-center">
                     <div class="lg:col-span-7">
                         <span class="font-label text-secondary uppercase tracking-[0.3em] text-xs mb-6 block" data-i18n="story_sub">Notre Histoire</span>
                         <h1 class="font-headline text-6xl md:text-8xl text-primary leading-tight mb-10 -ml-1" data-i18n="story_title">Traditional French Cuisine with a <span class="italic font-light">Family Touch</span></h1>
@@ -169,7 +187,7 @@
                             <p class="text-body text-lg leading-relaxed text-on-surface-variant" data-i18n="story_p2">Our 4.8-star reputation is built on the unwavering commitment of our family to source only the finest local ingredients. Every dish that leaves our kitchen carries the weight of heritage and the warmth of a home-cooked meal, refined for the modern palate.</p>
                         </div>
                     </div>
-                    <div class="lg:col-span-5 relative">
+                    <div class="md:col-span-1 lg:col-span-5 relative">
                         <div class="aspect-[4/5] rounded-xl overflow-hidden shadow-2xl">
                             <img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCyNniAFe_gtW7i_BRxfpcgStiIVCDzoHHte_bJiMH9kB4ITinGGH66j9yZXYuNa4Hi4lxtGxJjJ6fFIsF4NSrkuZOgXOjk4ysaIrc5lc8d8svwq6SSkphAbSxGOXw4hFf_Q4tZMHeLzY_m4xYn_o0izmcz7p0NWGxuEfEGOnp70dOcBQ2KcOy0eNG3vZDrab5XCh7FVBGHr50dxNWubdo53axYnPgLcEznshFleSHZ1XRvAe5nyiJeuihqwW93n1WoDyjWANOjmQ"/>
                         </div>
@@ -183,17 +201,17 @@
         
         <!-- Menu Section -->
         <div id="menu" class="reveal mt-20 pt-20">
-            <header class="max-w-7xl mx-auto px-8 mb-24 text-center">
+            <header class="max-w-7xl mx-auto px-6 md:px-12 mb-24 text-center">
                 <span class="work-sans text-secondary font-medium tracking-[0.2em] text-xs uppercase mb-4 block" data-i18n="menu_sub">Gastronomie Parisienne</span>
-                <h1 class="noto-serif text-6xl md:text-8xl font-bold tracking-tighter text-primary mb-8" data-i18n="menu_title">La Carte du Dôme</h1>
-                <p class="work-sans text-on-surface-variant max-w-2xl mx-auto text-lg leading-relaxed" data-i18n="menu_desc">Une célébration du terroir français au cœur du 15ème. Nos plats sont préparés avec passion, utilisant des produits de saison sélectionnés auprès de nos artisans locaux.</p>
+                <h1 class="noto-serif text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter text-primary mb-8" data-i18n="menu_title">La Carte du Dôme</h1>
+                <p class="work-sans text-on-surface-variant max-w-3xl mx-auto text-lg md:text-xl leading-relaxed" data-i18n="menu_desc">Une célébration du terroir français au cœur du 15ème. Nos plats sont préparés avec passion, utilisant des produits de saison sélectionnés auprès de nos artisans locaux.</p>
             </header>
 
-            <div class="max-w-7xl mx-auto px-8 space-y-32">
+            <div class="max-w-7xl mx-auto px-6 md:px-12 space-y-32">
                 <!-- Entrées -->
                 <section>
-                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
-                        <div class="lg:col-span-5 order-2 lg:order-1">
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 items-start">
+                        <div class="md:col-span-1 lg:col-span-5 order-2 lg:order-1">
                             <div class="inline-block px-4 py-1 mb-8 bg-surface-container-highest rounded-full text-secondary text-xs font-bold tracking-widest uppercase" data-i18n="menu_starters">Entrées</div>
                             <div class="space-y-10">
                                 <div class="group">
